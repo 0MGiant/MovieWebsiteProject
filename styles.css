@@ -68,7 +68,7 @@ body {
 }
 .menu-list-item:hover{
     font-weight: bold;
-    color: white;
+    color: black;
     background-color: gold;
 }
 
