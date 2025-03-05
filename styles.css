@@ -1,0 +1,245 @@
+body {
+    background-color: rgb(34, 33, 33);
+    color:rgb(34, 33, 33);
+}
+* {
+    margin: 0;
+}
+.navbar{
+    width: 100%;
+    height: 50px;
+    background-color: rgb(143, 140, 140);
+} 
+.navbar-container{
+    display:  flex;
+    align-items: center;
+    background-color: white;
+    padding: 0 50px;
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+.logo-container{
+    flex: 1;
+    padding-left: 20px;
+}
+.logo{
+    font-family: 'Jaini Purva';
+    font-size: 20px;
+    font-weight: bold;
+    color: rgba(50, 216, 50, 0.756);
+}
+.menu-container{
+    flex: 6;
+}
+.profile-container{
+    flex: 2;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.profile-text-container {
+    display: flex;
+    align-items: center; /* จัดไอคอนและข้อความให้อยู่ตรงกลางแนวตั้ง */
+    margin: 0 20px;
+    gap: 10px;
+}
+.profile-text{
+ font-weight: bolder;
+}
+.toggle{
+    width: 32px;
+    height: 20px;
+    background-color: black;
+    border-radius: 30px;
+}
+.menu-list{
+    display: flex;
+    list-style-type: none;
+}
+.menu-list-item{
+    margin-right: 50px;
+}
+.menu-list-item.active{
+    font-weight: bold;
+}
+
+.language-switcher {
+    margin-right: 20px;
+}
+
+#lang-btn {
+    background-color: white;
+    border: 1px solid gray;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+#lang-btn:hover {
+    background-color: #f0f0f0;
+}
+
+.movie-container {
+    width: 250px; 
+    height: auto; 
+    border-radius: 15px; 
+    display: flex; 
+    margin: 20px 15px; /* เพิ่มระยะห่างระหว่างกล่อง */
+    
+}
+.column-layout {
+    flex-direction: column; /* ให้เนื้อหาภายในเรียงจากบนลงล่าง */
+    text-align: center; /* จัดข้อความให้อยู่กลาง */
+}
+.row-layout {
+    flex-direction: row; /* ให้เนื้อหาภายในเรียงแนวนอน */
+}
+.movies-wrapper {
+    display: flex;
+    flex-wrap: wrap; /* ให้กล่องเรียงต่อกัน และขึ้นบรรทัดใหม่ได้ */
+    justify-content: center;
+}
+
+.movie-container img {
+    width: 100%; /* ปรับขนาดรูปภาพให้เต็มพื้นที่ */
+    border-radius: 15px; /* ทำให้รูปภาพมีขอบโค้งมนเหมือน container */
+}
+.image-container {
+    position: relative; /* ต้องใช้เพื่อให้ข้อความสามารถอยู่ใต้ภาพ */
+}
+
+.movie-title {
+    position :relative;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 16px;
+}
+.title-info{
+    font-size: 32px;
+}
+.movie-info {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 20px;
+    white-space: nowrap;
+}
+
+.release-date {
+    color: gold;
+    font-size: 28px;
+    padding: 8px 12px;
+}
+
+.genre {
+    font-size: 18px;
+    color: #ccc;
+    padding: 8px 12px;
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.age-rating {
+    background-color: #444;
+    color: gold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.duration {
+    font-size: 16px;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.view-detail {
+    border: 2px solid gold;
+    width: 100%;         /* ให้ข้อความขยายเต็มหน้าจอ */
+    color: gold;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    line-height: 1.8; /* ปรับระยะห่างระหว่างบรรทัด */
+    text-align: justify; /* จัดข้อความชิดขอบซ้าย-ขวา */
+}
+
+.view-detail:hover {
+    background: gold;
+    color: black;
+}
+.title-intro{
+    font-size: 24px;
+    margin-left: 17px;
+}
+.title-theater{
+    font-size: 20px;
+    color: white;
+}
+.sound{
+    display: flex;
+    align-items: center;
+    color: white;
+    gap: 5px;
+}
+strong{
+    font-size: 18px;
+    gap: 5px;
+}
+.movie-theater-info{
+    
+    width: 100vh;
+    
+    padding: 20px;
+    border-radius: 8px;
+    margin: 15px;
+    align-items: center;
+}
+.theater-2d{
+    background-color: #444;
+    color: gold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+.normal{
+    color: rgb(126, 235, 93);
+}
+.theater-imax{
+    background-color: #444;
+    color: rgb(68, 109, 255);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+.time-box{
+    display: flex;
+    width: 60px;
+    height: 40px;
+    border-radius: 8px;
+    background-color: gold;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 18px;
+}
+.time-box:hover{
+    background-color: white;
+}
+.time-title{
+    font-size: 16px;
+    color: #444;
+}
+.time-theater{
+    display: flex;
+    flex-wrap: nowrap;
+}
