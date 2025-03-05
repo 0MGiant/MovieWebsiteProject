@@ -87,7 +87,7 @@ body {
     align-items: center;
     width: 500px;    
     height: 600px;
-    margin: 100px 700px;
+    margin: 100px auto;    
     border: 10px solid #55a1239d;
     border-radius: 10px;
     background-color: rgb(53, 53, 53);
