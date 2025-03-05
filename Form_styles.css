@@ -87,6 +87,7 @@ body {
     align-items: center;    
     height: 600px;
     margin: 50px 700px;
+    border: 10px solid #55a1239d;
     border-radius: 10px;
     background-color: rgb(53, 53, 53);
   }
@@ -98,7 +99,7 @@ body {
     color: rgba(81, 240, 81, 0.756);
   }
   
-  .form label {
+  form label {
     font-size: 20px;
     display: block;
     color: rgb(255, 200, 50);
@@ -106,31 +107,39 @@ body {
     margin-left: 10px;
   }
   
-  .form input[type="text"] {
+  form input[type="text"] {
+    font-size: 20px;
     padding: 10px;
     border: 2px solid #ffffff;
     border-radius: 10px;
     height: 20px;
     width: 400px;
+    color: rgb(15, 15, 15);
+  }
+
+  form input[type="password"] {
+    font-size: 20px;
+    padding: 10px;
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+    height: 20px;
+    width: 400px;
+    color: rgb(15, 15, 15);
   }
   
-  .form .form_option {
+  form .form_option {
     display: flex;
     flex-direction: row;
     font-size: 20px;
     margin-top: 50px;
   }
 
-  .form .register_option {
+  form .register_option {
     margin: 0 80px 0 40px;
     color: rgba(146, 146, 146, 0.756);
   }
 
-  .form .forget_password_option {
+  form .forget_password_option {
     margin: 0 40px 0 80px;
     color: rgba(146, 146, 146, 0.756);
   }
-  
-  
-
-  
