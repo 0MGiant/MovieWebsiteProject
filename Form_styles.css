@@ -84,9 +84,10 @@ body {
     font-family: 'Jaini Purva';
     display: flex;
     flex-direction: column;
-    align-items: center;    
+    align-items: center;
+    width: 500px;    
     height: 600px;
-    margin: 50px 700px;
+    margin: 100px 700px;
     border: 10px solid #55a1239d;
     border-radius: 10px;
     background-color: rgb(53, 53, 53);
