@@ -1,0 +1,136 @@
+body {
+    background-color: rgb(34, 33, 33);
+    color:rgb(34, 33, 33);
+}
+* {
+    margin: 0;
+}
+.navbar{
+    width: 100%;
+    height: 50px;
+    background-color: rgb(143, 140, 140);
+} 
+.navbar-container{
+    display:  flex;
+    align-items: center;
+    background-color: white;
+    padding: 0 50px;    
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+.logo-container{
+    flex: 1;
+    padding-left: 20px;
+}
+.logo{
+    font-family: 'Jaini Purva';
+    font-size: 20px;
+    font-weight: bold;
+    color: rgba(50, 216, 50, 0.756);
+}
+.menu-container{
+    flex: 6;
+}
+.profile-container{
+    flex: 2;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.profile-text-container {
+    display: flex;
+    align-items: center; /* จัดไอคอนและข้อความให้อยู่ตรงกลางแนวตั้ง */
+    margin: 0 20px;
+    gap: 10px;
+}
+.profile-text{
+ font-weight: bolder;
+}
+.toggle{
+    width: 32px;
+    height: 20px;
+    background-color: black;
+    border-radius: 30px;
+}
+.menu-list{
+    display: flex;
+    list-style-type: none;
+}
+.menu-list-item{
+    margin-right: 50px;
+}
+.menu-list-item.active{
+    font-weight: bold;
+}
+
+.language-switcher {
+    margin-right: 20px;
+}
+
+#lang-btn {
+    background-color: white;
+    border: 1px solid gray;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+#lang-btn:hover {
+    background-color: #f0f0f0;
+}
+
+.form {
+    font-family: 'Jaini Purva';
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+    height: 600px;
+    margin: 50px 700px;
+    border-radius: 10px;
+    background-color: rgb(53, 53, 53);
+  }
+  
+  .form h1 {
+    font-family: 'Jaini Purva';
+    font-size: 80px;
+    margin: 20px 20px 10px 20px;
+    color: rgba(81, 240, 81, 0.756);
+  }
+  
+  .form label {
+    font-size: 20px;
+    display: block;
+    color: rgb(255, 200, 50);
+    margin-top: 65px;
+    margin-left: 10px;
+  }
+  
+  .form input[type="text"] {
+    padding: 10px;
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+    height: 20px;
+    width: 400px;
+  }
+  
+  .form .form_option {
+    display: flex;
+    flex-direction: row;
+    font-size: 20px;
+    margin-top: 50px;
+  }
+
+  .form .register_option {
+    margin: 0 80px 0 40px;
+    color: rgba(146, 146, 146, 0.756);
+  }
+
+  .form .forget_password_option {
+    margin: 0 40px 0 80px;
+    color: rgba(146, 146, 146, 0.756);
+  }
+  
+  
+
+  

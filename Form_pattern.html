@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Little Cinema</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Jaini Purva' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="navbar-container">
+            <div class="logo-container">
+                <div class="logo">little Cinema</div>
+            </div>
+            <div class="menu-container">
+                <ul class="menu-list">
+                    <li class="menu-list-item">Home</li>
+                    <li class="menu-list-item">Movie</li>
+                    <li class="menu-list-item">Theater</li>
+                </ul>
+            </div>
+            <div class="profile-container">
+                <div class="profile-text-container">
+                    <i class='fas fa-user-circle' style='font-size:40px;object-fit: cover;'></i>
+                    <span class="profile-text">Profile</span>
+                </div>
+
+                <div class="language-switcher">
+                    <button id="lang-btn">EN</button>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="form">
+            <h1>Little Cinema</h1>
+            <form action="/register" method="post">
+                <label for="name">Username/Email</label><br>
+                <input type="text" id="Username" name="Username"><br>
+                <label for="duration">Password</label><br>
+                <input type="text" id="Password" name="Password"><br>
+                <div class="form_option">
+                    <div class="register_option">
+                        <p class="register">Register</p>
+                    </div>
+                    <div class="forget_password_option">
+                        <p class="forget-password">Forget Password</p>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <script src="script.js"></script>
+</body>
+
+</html>
