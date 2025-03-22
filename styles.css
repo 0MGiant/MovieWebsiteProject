@@ -34,10 +34,6 @@ body {
     color: rgba(50, 216, 50, 0.756);
 }
 
-.menu-container {
-    flex: 6;
-}
-
 .profile-container {
     flex: 2;
     display: flex;
@@ -62,29 +58,6 @@ body {
     height: 20px;
     background-color: black;
     border-radius: 30px;
-}
-
-.menu-list {
-    display: flex;
-    list-style-type: none;
-}
-
-.menu-list-item {
-
-    width: 80px;
-    height: 50px;
-    /* ให้ข้อความขยายเต็มหน้าจอ */
-    color: black;
-    font-size: 16px;
-    cursor: pointer;
-    text-align: center;
-    align-content: center;
-}
-
-.menu-list-item:hover {
-    font-weight: bold;
-    color: black;
-    background-color: gold;
 }
 
 .language-switcher {
@@ -329,29 +302,28 @@ img {
 }
 
 .booking-container {
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
+    
     background-color: #222;
     color: white;
-    display: none;
-}
-
-.hidden {
-    display: none;
-}
-
-.show {
     display: flex;
+    flex-direction: column;  /* จัดเรียงแนวตั้ง */
+    justify-content: center; /* จัดกึ่งกลางตามแนวตั้ง */
+    align-items: center; /* จัดกึ่งกลางตามแนวนอน */
+    height: 100vh; /* ทำให้เต็มจอเพื่อเห็นผล */
+    text-align: center;
+    
 }
 
 .screen {
-    width: 80%;
+    width: 90%;
     text-align: center;
     font-size: 1.2em;
     padding: 10px;
     border-top: 3px solid orange;
     margin-bottom: 20px;
+    align-items: center;
+    margin: 20px;
+    
 }
 
 .seating-chart-first {
@@ -390,12 +362,11 @@ img {
     margin: 15px;
 }
 
-.fa-couch {
-    font-size: 20px;
-    cursor: pointer;
-}
-
-.fa-check-circle {
-    font-size: 20px;
+.fa-couch, .fa-check-circle {
+    font-size: min(1.8rem, 2vw); /* ใช้ค่าที่เล็กกว่า */
+    width: min(2.2rem, 2.5vw);
+    height: min(2.2rem, 2.5vw);
+    text-align: center;
+    margin-right: 10px; /* ระยะห่างระหว่างที่นั่ง */
     cursor: pointer;
 }

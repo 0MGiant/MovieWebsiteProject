@@ -64,19 +64,26 @@ function createSeatManager(cinema) {
         seatMap.innerHTML = '';  // ล้างที่นั่งที่มีอยู่แล้ว
 
         // สร้างที่นั่งใหม่
-        for (let i = 1; i <= 20; i++) {
+        for (let i = 1; i <= 30; i++) {
             const seat = document.createElement("div");
             seat.classList.add("seat");
             seat.dataset.seatId = i;
-            seat.innerText = i;
 
-            // เช็คสถานะของที่นั่งที่ถูกจองจาก localStorage
+            // **เพิ่มไอคอนโซฟาแทนตัวเลข**
+            const icon = document.createElement("i");
+           
+            icon.classList.add("fa-solid", "fa-couch");
+            icon.style.color = "#63E6BE";  // ตั้งค่าสี
+            seat.appendChild(icon);
+
+            // เช็คสถานะที่นั่งที่ถูกจอง
             if (localStorage.getItem(bookedSeatsKey)?.split(',').includes(i.toString())) {
                 seat.classList.add("booked");
+                icon.style.color = "gray";  // เปลี่ยนสีเป็นสีเทาหากถูกจองแล้ว
             }
 
-            // เมื่อคลิกที่นั่ง ให้ทำการ toggle การเลือก
-            seat.addEventListener("click", () => toggleSeat(seat));
+            // เพิ่ม event listener
+            seat.addEventListener("click", () => toggleSeat(seat, icon));
 
             seatMap.appendChild(seat);
         }

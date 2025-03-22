@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Little Cinema</title>
+    <title>Booking</title>
     <link rel="stylesheet" href="styles.css">
     <link href='https://fonts.googleapis.com/css?family=Jaini Purva' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         .movie-container:hover {
             transform: perspective(500px) translateZ(5px);
@@ -18,7 +18,6 @@
         }
     </style>
 </head>
-
 <body>
     <div class="navbar">
         <div class="navbar-container">
@@ -34,38 +33,30 @@
                     </a>
                     <span class="profile-text">Profile</span>
                 </div>
-
+    
                 <div class="language-switcher">
                     <button id="lang-btn">EN</button>
                 </div>
             </div>
         </div>
     </div>
-    <!--Zone Poster หนัง -->
-    <div class="movies-wrapper">
-        <div class="movie-container column-layout">
-            <a href="kimetsu-no-yaiba-Infinity-train.html">
-                <img src="infinity-train.jpg">
-            </a>
-            <div class="movie-title">
-                Kimetsu No Yaiba Infinity train
-            </div>
-        </div>
-
-        <div class="movie-container column-layout">
-            <a href="kimetsu-no-yaiba-Infinity-castle.html">
-                <img src="infinity-castle.jpg">
-            </a>
-            <div class="movie-title">
-                Kimetsu No Yaiba Infinity Castle
-            </div>
-        </div>
+    <div class="booking-container" data-time="11:00" theater="1">
+        <div class="screen">📽️ Screen</div>
+        
+        <!-- ที่นั่งโซนปกติ -->
+        <div id="seating-chart-first" class="seating-chart"></div>
+        <br>
+        <div id="seating-chart-second" class="seating-chart"></div>
+    
+        <br>
+    
+        <!-- ที่นั่ง VIP -->
+        <div id="vip-row" class="vip-row"></div>
     </div>
-
-    <!--Zone Poster หนัง-->
-
-
-    <script src="script.js" defer></script>
+    
+    
+    <script src="script.js"></script>
 </body>
+
 
 </html>
