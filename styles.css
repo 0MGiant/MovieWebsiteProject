@@ -1,72 +1,87 @@
 body {
     background-color: rgb(34, 33, 33);
-    color:rgb(34, 33, 33);
+    color: rgb(34, 33, 33);
 }
+
 * {
     margin: 0;
 }
-.navbar{
+/*เอฟเฟ็กเมนู*/
+.navbar {
     width: 100%;
     height: 50px;
     background-color: rgb(143, 140, 140);
-} 
-.navbar-container{
-    display:  flex;
+}
+
+.navbar-container {
+    display: flex;
     align-items: center;
     background-color: white;
     padding: 0 50px;
     height: 100%;
     font-family: Arial, sans-serif;
 }
-.logo-container{
+
+.logo-container {
     flex: 1;
     padding-left: 20px;
 }
-.logo{
+
+.logo {
     font-family: 'Jaini Purva';
     font-size: 20px;
     font-weight: bold;
     color: rgba(50, 216, 50, 0.756);
 }
-.menu-container{
+
+.menu-container {
     flex: 6;
 }
-.profile-container{
+
+.profile-container {
     flex: 2;
     display: flex;
     align-items: center;
     justify-content: flex-end;
 }
+
 .profile-text-container {
     display: flex;
-    align-items: center; /* จัดไอคอนและข้อความให้อยู่ตรงกลางแนวตั้ง */
+    align-items: center;
+    /* จัดไอคอนและข้อความให้อยู่ตรงกลางแนวตั้ง */
     margin: 0 20px;
     gap: 10px;
 }
-.profile-text{
- font-weight: bolder;
+
+.profile-text {
+    font-weight: bolder;
 }
-.toggle{
+
+.toggle {
     width: 32px;
     height: 20px;
     background-color: black;
     border-radius: 30px;
 }
-.menu-list{
+
+.menu-list {
     display: flex;
     list-style-type: none;
 }
-.menu-list-item{
-    
-    width: 80px; 
-    height: 50px;        /* ให้ข้อความขยายเต็มหน้าจอ */
+
+.menu-list-item {
+
+    width: 80px;
+    height: 50px;
+    /* ให้ข้อความขยายเต็มหน้าจอ */
     color: black;
     font-size: 16px;
     cursor: pointer;
     text-align: center;
     align-content: center;
 }
-.menu-list-item:hover{
+
+.menu-list-item:hover {
     font-weight: bold;
     color: black;
     background-color: gold;
@@ -88,46 +103,60 @@ body {
 #lang-btn:hover {
     background-color: #f0f0f0;
 }
-
+/*เอฟเฟ็กหนัง*/
 .movie-container {
-    width: 250px; 
-    height: auto; 
-    border-radius: 15px; 
-    display: flex; 
-    margin: 20px 15px; /* เพิ่มระยะห่างระหว่างกล่อง */
-    
+    width: 250px;
+    height: auto;
+    border-radius: 15px;
+    display: flex;
+    margin: 20px 15px;
+    /* เพิ่มระยะห่างระหว่างกล่อง */
+
 }
+
 .column-layout {
-    flex-direction: column; /* ให้เนื้อหาภายในเรียงจากบนลงล่าง */
-    text-align: center; /* จัดข้อความให้อยู่กลาง */
+    flex-direction: column;
+    /* ให้เนื้อหาภายในเรียงจากบนลงล่าง */
+    text-align: center;
+    /* จัดข้อความให้อยู่กลาง */
 }
+
 .row-layout {
-    flex-direction: row; /* ให้เนื้อหาภายในเรียงแนวนอน */
+    flex-direction: row;
+    /* ให้เนื้อหาภายในเรียงแนวนอน */
 }
+
 .movies-wrapper {
     display: flex;
-    flex-wrap: wrap; /* ให้กล่องเรียงต่อกัน และขึ้นบรรทัดใหม่ได้ */
+    flex-wrap: wrap;
+    /* ให้กล่องเรียงต่อกัน และขึ้นบรรทัดใหม่ได้ */
     justify-content: center;
 }
 
 .movie-container img {
-    width: 100%; /* ปรับขนาดรูปภาพให้เต็มพื้นที่ */
-    border-radius: 15px; /* ทำให้รูปภาพมีขอบโค้งมนเหมือน container */
+    width: 100%;
+    /* ปรับขนาดรูปภาพให้เต็มพื้นที่ */
+    border-radius: 15px;
+    /* ทำให้รูปภาพมีขอบโค้งมนเหมือน container */
 }
+
 .image-container {
-    position: relative; /* ต้องใช้เพื่อให้ข้อความสามารถอยู่ใต้ภาพ */
+    position: relative;
+    /* ต้องใช้เพื่อให้ข้อความสามารถอยู่ใต้ภาพ */
 }
 
 .movie-title {
-    position :relative;
+    position: relative;
     color: white;
     padding: 8px 12px;
     border-radius: 8px;
     font-size: 16px;
 }
-.title-info{
+
+.title-info {
     font-size: 32px;
 }
+
 .movie-info {
     color: white;
     display: flex;
@@ -173,65 +202,77 @@ body {
 
 .view-detail {
     border: 2px solid gold;
-    width: 100%;         /* ให้ข้อความขยายเต็มหน้าจอ */
+    width: 100%;
+    /* ให้ข้อความขยายเต็มหน้าจอ */
     color: gold;
     padding: 10px 20px;
     font-size: 16px;
     border-radius: 5px;
     cursor: pointer;
-    line-height: 1.8; /* ปรับระยะห่างระหว่างบรรทัด */
-    text-align: justify; /* จัดข้อความชิดขอบซ้าย-ขวา */
+    line-height: 1.8;
+    /* ปรับระยะห่างระหว่างบรรทัด */
+    text-align: justify;
+    /* จัดข้อความชิดขอบซ้าย-ขวา */
 }
 
 .view-detail:hover {
     background: gold;
     color: black;
 }
-.title-intro{
+
+.title-intro {
     font-size: 24px;
     margin-left: 17px;
 }
-.title-theater{
+
+.title-theater {
     font-size: 20px;
     color: white;
 }
-.sound{
+
+.sound {
     display: flex;
     align-items: center;
     color: white;
     gap: 5px;
 }
-strong{
+
+strong {
     font-size: 18px;
     gap: 5px;
 }
-.movie-theater-info{
-    
+
+.movie-theater-info {
+
     width: 100vh;
-    
+
     padding: 20px;
     border-radius: 8px;
     margin: 15px;
     align-items: center;
 }
-.theater-2d{
+
+.theater-2d {
     background-color: #444;
     color: gold;
     padding: 5px 10px;
     border-radius: 5px;
     font-weight: bold;
 }
-.normal{
+
+.normal {
     color: rgb(126, 235, 93);
 }
-.theater-imax{
+
+.theater-imax {
     background-color: #444;
     color: rgb(68, 109, 255);
     padding: 5px 10px;
     border-radius: 5px;
     font-weight: bold;
 }
-.time-box{
+
+.time-box {
     display: flex;
     width: 60px;
     height: 40px;
@@ -241,28 +282,120 @@ strong{
     justify-content: center;
     margin: 20px 18px;
 }
-.time-box:hover{
+
+.time-box:hover {
     background-color: white;
 }
-.time-title{
+
+.time-title {
     font-size: 16px;
     color: #444;
 }
-.time-theater{
+
+.time-theater {
     display: flex;
     flex-wrap: nowrap;
+    cursor: pointer;
 }
-a{
+
+a {
     color: black;
     text-decoration: none;
 }
-a:hover{
+
+a:hover {
     text-decoration: none;
 }
-.imglogo{
+
+.imglogo {
     width: fit-content;
-    height:55px;
+    height: 55px;
 }
-img{
-    height:  400px;
+
+img {
+    height: 400px;
+}
+
+.booking-section {
+    display: flex;
+    align-items: flex-start;
+    /* จัดให้อยู่บนสุด */
+    width: 100%;
+}
+
+.booking-time-zone {
+    width: 40%;
+    /* หรือปรับขนาดตามต้องการ */
+}
+
+.booking-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #222;
+    color: white;
+    display: none;
+}
+
+.hidden {
+    display: none;
+}
+
+.show {
+    display: flex;
+}
+
+.screen {
+    width: 80%;
+    text-align: center;
+    font-size: 1.2em;
+    padding: 10px;
+    border-top: 3px solid orange;
+    margin-bottom: 20px;
+}
+
+.seating-chart-first {
+    display: grid;
+    grid-template-columns: repeat(18, 1fr);
+    grid-template-rows: auto auto auto auto auto;
+    gap: 8px;
+    justify-content: center;
+    /* จัดตำแหน่งในแนวนอน */
+    align-items: center;
+    /* จัดตำแหน่งในแนวตั้ง */
+}
+
+.seating-chart-second {
+    display: grid;
+    grid-template-columns: repeat(18, 1fr);
+    grid-template-rows: auto auto auto auto auto;
+    gap: 8px;
+    justify-content: center;
+    /* จัดตำแหน่งในแนวนอน */
+    align-items: center;
+    /* จัดตำแหน่งในแนวตั้ง */
+}
+
+.vip-row {
+    grid-column: span 18;
+    /* VIP กินพื้นที่เต็มแถว */
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.vip-seat {
+    display: flex;
+    gap: 3px;
+    margin: 15px;
+}
+
+.fa-couch {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.fa-check-circle {
+    font-size: 20px;
+    cursor: pointer;
 }
