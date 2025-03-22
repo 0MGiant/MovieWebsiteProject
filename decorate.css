@@ -1,0 +1,65 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 10px;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.cinema {
+    display: none;
+}
+
+#seat-map1, #seat-map2 {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.seat {
+    width: 40px;
+    height: 40px;
+    background-color: #a0a0a0;
+    border: 1px solid #888;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 16px;
+}
+
+.seat.selected {
+    background-color: #4CAF50;
+}
+
+.seat.booked {
+    background-color: #FF5722;
+    cursor: not-allowed;
+}
+
+#selected-seats1, #selected-seats2 {
+    margin-top: 20px;
+}
+
+#seats-list1, #seats-list2 {
+    list-style-type: none;
+    padding: 0;
+}
