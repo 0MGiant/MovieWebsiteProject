@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Booking</title>
+    <title>Summary</title>
     <link rel="stylesheet" href="styles.css">
     <link href='https://fonts.googleapis.com/css?family=Jaini Purva' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -41,30 +41,26 @@
             </div>
         </div>
     </div>
-    <div id="booking-page">
-        <div class="booking-container">
-            <div class="screen">📽️ Screen</div>
+
+    <div id="summary-page">
+        <div class="summary-container">
+            <h2>kimetsu no yaiba Infinity train</h2>
+            <p>9 April 2025<br>11:00</p>
+            
+            <h3>Theater 2</h3>
     
-            <!-- ที่นั่งโซนปกติ -->
-            <div id="seating-chart-first" class="seating-chart"></div>
-            <br>
-            <div id="seating-chart-second" class="seating-chart"></div>
+            <div class="summary-box">
+                <p>ที่นั่งที่เลือก</p>
+                <p id="selected-seats">-</p>
     
-            <br>
+                <p>ราคารวม</p>
+                <p id="total-price">0 บาท</p>
     
-            <!-- ที่นั่ง VIP -->
-            <div id="vip-row" class="vip-row">
-    
+                <button id="proceed-btn" disabled>ดำเนินการต่อ</button>
             </div>
-            <div class="button-booking">
-                <!-- ปุ่ม จองที่จะlink ไปยังหน้าถัดไป,ปุ่มย้อนหลับหน้าหนังที่เลือกมา-->
-                <ul id="seats-list"></ul>
-                <button id="book-seats" disabled>Booking</button>
-                <button id="back-movie">Back</button>
-                
-            <div>
         </div>
     </div>
+    
     
     <script src="script.js"></script>
 </body>

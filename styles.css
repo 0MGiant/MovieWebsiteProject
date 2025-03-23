@@ -312,6 +312,7 @@ img {
     height: 100vh; /* ทำให้เต็มจอเพื่อเห็นผล */
     text-align: center;
     
+    
 }
 
 .screen {
@@ -320,9 +321,11 @@ img {
     font-size: 1.2em;
     padding: 10px;
     border-top: 3px solid orange;
-    margin-bottom: 20px;
     align-items: center;
-    margin: 20px;
+    margin-bottom: 15vw; /* ระยะห่างระหว่างจอกับผู้ชม */
+    position: absolute;
+    top: 70px; /* ปรับค่าตามที่ต้องการ */
+    
     
 }
 
@@ -369,4 +372,57 @@ img {
     text-align: center;
     margin-right: 10px; /* ระยะห่างระหว่างที่นั่ง */
     cursor: pointer;
+}
+.button-booking{
+    display: inline;
+    margin-top: 3vh;
+    display: flex;
+    justify-content: center; /* จัดแนวนอน */
+    align-items: center;
+}
+button{
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 10px;
+}
+#book-seats:disabled {
+    background-color: #787777;
+    color: white;
+    cursor: not-allowed;
+}
+#back-movie{
+    color: white;
+    background-color: #3c3c3a;
+}
+#book-seats{
+    color: #000000;
+    background-color: #e8ce22;
+}
+#summary-page{
+    display: flex;
+    justify-content: center; /* จัดแนวนอน */
+    align-items: center;
+    margin: 10vh;
+}
+.summary-container {
+    display: flex;
+    
+    height: 100vh;          /* ความสูงเต็มหน้าจอ */
+    background-color: #f3f4f6; /* สีพื้นหลัง */
+    width: 100vh;
+    height: 50vh;
+    border-radius: 20px;
+    
+
+   
+  }
+#seats-list{
+    list-style-type: none;
+    
+}
+li{
+    flex-wrap: nowrap;
 }
