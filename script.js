@@ -26,7 +26,7 @@ function switchLanguage() {
     }
     profileText.textContent = translations[currentLang].profile;
     langBtn.textContent = translations[currentLang].button;
-    
+
     poster[0].textContent = translations[currentLang].poster1;
     poster[1].textContent = translations[currentLang].poster2;
 }
@@ -53,9 +53,7 @@ document.querySelectorAll(".fa-couch").forEach(seat => {
 });
 
 // แสดงรอบหนัง
-function showSeat(time,theater) {
-    // ตรวจสอบว่ามีข้อมูล time และ theater หรือไม่
-
+function showSeat(time, theater) {
     // สร้าง URL สำหรับหน้าเว็บใหม่ (ปรับตามโครงสร้างเว็บของคุณ)
     const newPageUrl = `booking.html?movie=${movie}&time=${time}&theater=${theater}`;
 
@@ -74,7 +72,7 @@ function createSeatLayout(containerId, rows, cols, isVIP = false) {
         for (let col = 0; col < cols; col++) {
             const seat = document.createElement("i");
             seat.classList.add("fa-solid", "fa-couch");
-            const rowLetter =  isVIP ? "VIP" : String.fromCharCode(65 + row);  
+            const rowLetter = isVIP ? "VIP" : String.fromCharCode(65 + row);
             seat.dataset.seatId = `${rowLetter}${col + 1}`;
             seat.style.color = isVIP ? "#2a80f8" : "#63E6BE"; // สีฟ้า = VIP, สีเขียว = ปกติ
 
@@ -94,16 +92,15 @@ document.addEventListener("DOMContentLoaded", function () {
     createSeatLayout("vip-row", 2, 4, true); // ที่นั่ง VIP 2 แถว × 4 คอลัมน์
 });
 //ระบบการจอง
-const BookingPage  = document.getElementById("booking-page");
-//const SummaryPage = document.getElementById("summary-page");
+const BookingPage = document.getElementById("booking-page");
+const SummaryPage = document.getElementById("summary-page");
 const bookingSeat = document.getElementsByClassName("booking-container");
 const selectedSeatsList = document.getElementById("seats-list");
 const bookButton = document.getElementById("book-seats");
-bookButton.addEventListener("click",()=> showSummaryPage());
+//bookButton.addEventListener("click", () => showSummaryPage());
 
 const backButton = document.getElementById("back-movie");
-backButton.addEventListener("click",()=> showMoviePage());
-
+backButton.addEventListener("click", () => showMoviePage());
 
 let selectedSeats = [];
 
@@ -112,12 +109,14 @@ function toggleSeat(seat) {
         alert("ที่นั่งนี้ถูกจองแล้ว!");
         return;
     }
-    
+
     if (!seat.dataset.originalColor) {
         seat.dataset.originalColor = getComputedStyle(seat).color; // เก็บสีเดิม
     }
 
+    // เปลี่ยนสถานะการเลือกที่นั่ง
     seat.classList.toggle("selected");
+
     const seatId = seat.dataset.seatId;
 
     if (seat.classList.contains("selected")) {
@@ -135,27 +134,63 @@ function toggleSeat(seat) {
         seat.style.height = "min(2.2rem, 2.5vw)";
         selectedSeats = selectedSeats.filter(id => id !== seatId);
     }
+
+    console.log(selectedSeats);
     updateSelectedSeats();
 }
-function updateSelectedSeats() {
-        selectedSeatsList.innerHTML = "";
+
+// ฟังก์ชันสำหรับการจองที่นั่ง
+bookButton.addEventListener("click", () => {
+    if (selectedSeats.length > 0) {
+        // บันทึกที่นั่งที่จองลงใน localStorage
+        const bookedSeats = localStorage.getItem("bookedSeats") || "";
+        localStorage.setItem("bookedSeats", [bookedSeats, selectedSeats].join(","));
+
+        // เปลี่ยนสถานะที่นั่งที่ถูกเลือกเป็นที่จอง
         selectedSeats.forEach(seatId => {
-            if (selectedSeats.length > 0) {
-                
-                selectedSeatsList.textContent = `Seat you select: ${selectedSeats.join(", ")}`;
-            } else {
-                selectedSeatsList.textContent = "No seat selected";
-                
-            }  
+            const seat = document.querySelector(`[data-seat-id="${seatId}"]`);
+            seat.classList.remove("selected");
+            seat.classList.add("booked");
+            seat.innerHTML = `จอง ${seatId}`;
+            seat.setAttribute('disabled', 'true');
         });
 
-        bookButton.disabled = selectedSeats.length === 0;  // เปิด/ปิดปุ่ม Booking ตามจำนวนที่เลือก
-        
-    }
+        // เคลียร์การเลือกที่นั่ง
+        // selectedSeats = [];
+        bookButton.disabled = true;
+        console.log(localStorage);
 
+        showSummaryPage();
+    }
+});
+
+function updateSelectedSeats() {
+    selectedSeatsList.innerHTML = "";
+    selectedSeats.forEach(seatId => {
+        if (selectedSeats.length > 0) {
+
+            selectedSeatsList.textContent = `Seat you select: ${selectedSeats.join(", ")}`;
+        } else {
+            selectedSeatsList.textContent = "No seat selected";
+
+        }
+    });
+
+    bookButton.disabled = selectedSeats.length === 0;  // เปิด/ปิดปุ่ม Booking ตามจำนวนที่เลือก        
+}
 function showSummaryPage() {
     window.location.href = "summary.html";
 }
-function showMoviePage(){
+function showMoviePage() {
     window.location.href = "kimetsu-no-yaiba-Infinity-train.html";
 }
+
+const resetButton = document.getElementById('reset-btn');
+
+resetButton.addEventListener("click", () => {
+    localStorage.removeItem("bookedSeats");
+    createSeats();
+    selectedSeats = [];
+    bookButton.disabled = true;
+    paymentButton.disabled = true;
+});
