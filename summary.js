@@ -1,18 +1,18 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const selectedSeatsDetails = document.getElementById('selectedSeatsDetails');
+    const selectedSeatsDetails = document.getElementById('seat-list');
     const totalPrice = document.getElementById('total-price');
     const backButton = document.getElementById('back-btn');
     const payButton = document.getElementById('pay-btn');
-    const seatPrice = 100; // ราคาแต่ละที่นั่ง
-    let selectedSeats = localStorage.getItem("bookedSeats")?.split(',') || [];
-
+    let selectedSeats = localStorage.getItem("bookedSeats")?.split(',');
+    document.getElementById("seat-list").textContent = selectedSeats.join(", ");
     // กรองข้อมูลที่นั่งที่ไม่ถูกต้อง (ช่องว่าง, null, หรือ undefined)
     selectedSeats = selectedSeats.filter(seat => seat.trim() !== "");
-    console.log(selectedSeats);
+    const vipSeats = selectedSeats.filter(seat => seat.startsWith("VIP"));
+    const regularSeats = selectedSeats.filter(seat => !seat.startsWith("VIP"));
 
     // แสดงข้อมูลการจอง
     if (selectedSeats.length > 0) {
-        const totalPriceAmount = selectedSeats.length * seatPrice;
+        const totalPriceAmount = (regularSeats.length * 100) + (vipSeats.length*300);
         selectedSeatsDetails.textContent = selectedSeats.join(", ");
         totalPrice.textContent = totalPriceAmount;
     } 

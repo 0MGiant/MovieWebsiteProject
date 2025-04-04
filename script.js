@@ -97,7 +97,6 @@ const SummaryPage = document.getElementById("summary-page");
 const bookingSeat = document.getElementsByClassName("booking-container");
 const selectedSeatsList = document.getElementById("seats-list");
 const bookButton = document.getElementById("book-seats");
-//bookButton.addEventListener("click", () => showSummaryPage());
 
 const backButton = document.getElementById("back-movie");
 backButton.addEventListener("click", () => showMoviePage());

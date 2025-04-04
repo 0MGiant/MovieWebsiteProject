@@ -41,28 +41,40 @@
             </div>
         </div>
     </div>
-
     <div id="summary-page">
-        <div class="summary-container">
-            <h2>kimetsu no yaiba Infinity train</h2>
-            <p>9 April 2025<br>11:00</p>
-            
-            <h3>Theater 2</h3>
-    
-            <div class="summary-box">
-                <p>ที่นั่งที่เลือก</p>
-                <p id="selectedSeatsDetails">-</p>
-    
-                <p>ราคารวม</p>
-                <p id="total-price"></p>
-    
-                <button id="pay-btn" disabled>ดำเนินการต่อ</button>
-                <button id="back-btn">ย้อนกลับ</button>
+        <div class="ticket-container">
+            <div class="poster-summary">
+                <img src="infinity-train.jpg">
             </div>
+            <div class="movie-info-summary">
+                <h2>Kimetsu No Yaiba Infinity Train</h2>
+                <div class="info-row">
+                    <div class="audio-theater">
+                        <span class="audio-summary">JP/TH</span>
+                        <p class="theater"><strong>Theater 2</strong></p>
+                    </div>
+                    <p class="date-time">9 April 2025 11:00</p>
+                </div>
+                <hr>
+                <p class="seats-summary">Selected Seats</p>
+                <br>
+                <p id="seat-list">None</p>
+                <div class="button-field">
+                    <div class="total-summary">Total : 
+                        <span id="total-price"></span>
+                    </div>
+                    <button id="back-btn">Back</button>
+                    <button id="pay-btn">Checkout</button>
+                </div>
+            </div>
+            
+            
         </div>
     </div>
-    
-    
+
+
+
     <script src="summary.js"></script>
 </body>
+
 </html>

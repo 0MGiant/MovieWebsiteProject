@@ -401,28 +401,120 @@ button{
     color: #000000;
     background-color: #e8ce22;
 }
+.seat-container{
+    display: inline-flex;
+    margin: 20px;
+    
+}
+.price-seat{
+    background-color: #5a5757;
+    width: 20vh;
+    height: 10vh;
+    border-radius: 8px;
+    margin: 10px;
+    pointer-events: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    gap: 20px;
+}
 #summary-page{
     display: flex;
     justify-content: center; /* จัดแนวนอน */
     align-items: center;
     margin: 10vh;
 }
-.summary-container {
-    display: flex;
-    
-    height: 100vh;          /* ความสูงเต็มหน้าจอ */
-    background-color: #f3f4f6; /* สีพื้นหลัง */
-    width: 100vh;
-    height: 50vh;
-    border-radius: 20px;
-    
-
-   
-  }
 #seats-list{
     list-style-type: none;
     
 }
 li{
     flex-wrap: nowrap;
+}
+.ticket-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: auto auto auto;
+    gap: 10px;
+    background: rgb(255, 255, 255);
+    border-radius: 15px;
+    padding: 20px;
+    width: 80vh;
+    margin: auto;
+}
+.poster-summary{
+    width: max-content
+}
+.poster-summary img{
+    border-radius: 15px;
+    max-width: 100%;
+}
+.movie-info-summary {
+    font-size: 18px;
+    margin: 0px;
+    padding-left: 10px;
+    
+}
+.movie-info-summary h2 {
+    margin: 5px;
+    font-size: 24px;
+    
+}
+.movie-info-summary .audio-summary {
+    background: black;
+    color: white;
+    padding: 2px 5px;
+    font-size: 12px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.info-row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.theater-summary {
+    font-weight: bold;
+    
+}
+.seats-summary {
+    margin: 10px;
+    font-size: 24px;
+    font-weight: bold;
+}
+.total-summary {
+    background: #fff5b5;
+    padding: 5px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    width: 100px;
+    height: 50px;
+}
+#pay-btn, #back-btn {
+    background: #fff5b5;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100px;
+    height: 50px;
+}
+.audio-theater {
+    display: flex;
+    flex-direction: column;
+}
+.button-field{
+    display: flex;
+    margin-top: 150px;
+    justify-content: center; /* จัดปุ่มตรงกลาง */
+    align-items: center;
+    gap: 10px; /* เพิ่มช่องว่างระหว่างปุ่ม */
 }
