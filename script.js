@@ -1,5 +1,5 @@
 const langBtn = document.getElementById("lang-btn");
-const profileText = document.getElementById("profile-text");
+const profileText = document.querySelector(".profile-text");
 const poster = document.querySelectorAll(".movie-title");
 let currentLang = "EN"; // กำหนดค่าเริ่มต้นเป็นอังกฤษ
 
@@ -61,20 +61,61 @@ function showSeat(time, theater) {
     window.location.href = newPageUrl;
 
 }
-function createSeatLayout(containerId, rows, cols, isVIP = false) {
+function createSeatLayout(containerId) {
     const container = document.getElementById(containerId);
     container.innerHTML = ""; // ล้างเนื้อหาเก่าก่อนสร้างใหม่
 
-    for (let row = 0; row < rows; row++) {
-        const rowDiv = document.createElement("div");
-        rowDiv.classList.add(isVIP ? "vip-row" : "seat-row");
+    let selectedSeats = JSON.parse(localStorage.getItem("bookedSeats")) || [];
+    console.log(selectedSeats);
+    console.log(localStorage);
 
-        for (let col = 0; col < cols; col++) {
-            const seat = document.createElement("i");
+
+    for (let row = 1; row < 10; row++) {
+        let rowDiv = document.createElement("div");
+        if (row > 0 && row < 9) {
+            rowDiv.classList.add("seat-row");
+            if (row == 5) {
+                rowDiv.style.marginTop = "20px";
+            }
+        }
+        else {
+            rowDiv.style.marginTop = "20px";
+            rowDiv.classList.add("vip-row");
+        }
+
+        for (let col = 1; col < 19; col++) {
+            const seat = document.createElement("div");
             seat.classList.add("fa-solid", "fa-couch");
-            const rowLetter = isVIP ? "VIP" : String.fromCharCode(65 + row);
-            seat.dataset.seatId = `${rowLetter}${col + 1}`;
-            seat.style.color = isVIP ? "#2a80f8" : "#63E6BE"; // สีฟ้า = VIP, สีเขียว = ปกติ
+            if (row == 9) {
+                const rowLetter = "VIP";
+                seat.dataset.seatId = `${rowLetter}${col}`;
+                seat.style.color = "#2a80f8";
+                if(col%2 == 0) { 
+                    seat.style.marginRight = "0px";
+                }
+                if (selectedSeats.includes(`VIP${col}`)) {
+                    seat.classList.remove("fa-couch");
+                    seat.classList.add("fa-check-circle"); // เปลี่ยนเป็นเครื่องหมายเช็ค
+                    seat.style.color = "#e8ce22"; // เปลี่ยนเป็นสีแดงส้ม
+                    seat.style.width = "min(2.2rem, 2.5vw)"; // คงขนาดไว้
+                    seat.style.height = "min(2.2rem, 2.5vw)";
+                }
+            }
+            else {
+                const rowLetter = String.fromCharCode(64 + row);
+                seat.dataset.seatId = `${rowLetter}${col}`;
+                seat.style.color = "#63E6BE";
+                if (selectedSeats.includes(`${String.fromCharCode(64 + row)}${col}`)) {
+                    seat.classList.remove("fa-couch");
+                    seat.classList.add("fa-check-circle"); // เปลี่ยนเป็นเครื่องหมายเช็ค
+                    seat.style.color = "#e8ce22"; // เปลี่ยนเป็นสีแดงส้ม
+                    seat.style.width = "min(2.2rem, 2.5vw)"; // คงขนาดไว้
+                    seat.style.height = "min(2.2rem, 2.5vw)";
+                }
+            }
+            // const rowLetter = isVIP ? "VIP" : String.fromCharCode(64 + row);
+            // seat.dataset.seatId = `${rowLetter}${col}`;
+            //seat.style.color = isVIP ? "#2a80f8" : "#63E6BE"; // สีฟ้า = VIP, สีเขียว = ปกติ
 
             // เพิ่ม Event Listener สำหรับเลือกที่นั่ง
             seat.addEventListener("click", () => toggleSeat(seat));
@@ -87,10 +128,11 @@ function createSeatLayout(containerId, rows, cols, isVIP = false) {
 }
 // เรียกใช้ฟังก์ชันสร้างที่นั่งเมื่อหน้าโหลดเสร็จ
 document.addEventListener("DOMContentLoaded", function () {
-    createSeatLayout("seating-chart-first", 4, 18); // ที่นั่งปกติ 4 แถว × 18 คอลัมน์
-    createSeatLayout("seating-chart-second", 4, 18); // ที่นั่งปกติอีกชุด
-    createSeatLayout("vip-row", 1, 8, true); // ที่นั่ง VIP 2 แถว × 4 คอลัมน์
+    createSeatLayout("seating-chart-first"); // ที่นั่งปกติ 4 แถว × 18 คอลัมน์
+    // createSeatLayout("seating-chart-second"); // ที่นั่งปกติอีกชุด
+    // createSeatLayout("vip-row",true); // ที่นั่ง VIP 2 แถว × 4 คอลัมน์
 });
+
 //ระบบการจอง
 const BookingPage = document.getElementById("booking-page");
 const SummaryPage = document.getElementById("summary-page");
@@ -125,6 +167,7 @@ function toggleSeat(seat) {
         seat.style.width = "min(2.2rem, 2.5vw)"; // คงขนาดไว้
         seat.style.height = "min(2.2rem, 2.5vw)";
         selectedSeats.push(seatId);
+        console.log(selectedSeats);
     } else {
         seat.classList.remove("fa-check-circle");
         seat.classList.add("fa-couch"); // กลับเป็นโซฟา
@@ -132,19 +175,19 @@ function toggleSeat(seat) {
         seat.style.width = "min(2.2rem, 2.5vw)"; // คงขนาดไว้
         seat.style.height = "min(2.2rem, 2.5vw)";
         selectedSeats = selectedSeats.filter(id => id !== seatId);
+        console.log(selectedSeats);
     }
 
-    console.log(selectedSeats);
     updateSelectedSeats();
 }
+
+let personal_bookedSeats = [];
 
 // ฟังก์ชันสำหรับการจองที่นั่ง
 bookButton.addEventListener("click", () => {
     if (selectedSeats.length > 0) {
-        // บันทึกที่นั่งที่จองลงใน localStorage
-        const bookedSeats = localStorage.getItem("bookedSeats") || "";
-        const newSeats = selectedSeats.join(",");
-        localStorage.setItem("bookedSeats", bookedSeats ? bookedSeats + "," + newSeats : newSeats);
+        personal_bookedSeats = selectedSeats;
+        localStorage.setItem("personal-seats", JSON.stringify(personal_bookedSeats));
 
         // เปลี่ยนสถานะที่นั่งที่ถูกเลือกเป็นที่จอง
         selectedSeats.forEach(seatId => {
@@ -154,7 +197,7 @@ bookButton.addEventListener("click", () => {
             seat.innerHTML = `จอง ${seatId}`;
             seat.setAttribute('disabled', 'true');
         });
-
+        console.log(localStorage.getItem("bookedSeats"));
         // เคลียร์การเลือกที่นั่ง
         // selectedSeats = [];
         bookButton.disabled = true;
@@ -189,8 +232,31 @@ const resetButton = document.getElementById('reset-btn');
 
 resetButton.addEventListener("click", () => {
     localStorage.removeItem("bookedSeats");
-    createSeats();
+    localStorage.removeItem("test");
+    localStorage.removeItem("personal-seats");
+    // createSeats();
     selectedSeats = [];
     bookButton.disabled = true;
-    paymentButton.disabled = true;
+});
+
+// ตัวแปรเพื่อเก็บชื่อหนัง
+let movieNames = [];
+
+// ฟังก์ชันสำหรับการคลิกที่หนัง
+function addMovieName(event) {
+    // ดึงชื่อหนังจาก div.movie-title ที่อยู่ใน movie-container เดียวกัน
+    let movieTitle = event.target.closest('#kimetsu-no-yaiba-Infinity-train').querySelector('.movie-title').innerText;
+
+    // เพิ่มชื่อหนังที่ถูกคลิกไปยัง movieNames
+    movieNames.push(movieTitle);
+
+    // แสดงผลชื่อหนังที่ถูกคลิก
+    console.log(`You clicked on: ${movieTitle}`);
+    console.log("All clicked movie names:", movieNames);
+}
+
+// เพิ่ม event listener ให้กับทุก ๆ รูปภาพใน .movie-container
+let movieImages = document.querySelectorAll('.movie-container img');
+movieImages.forEach(function(image) {
+    image.addEventListener('click', addMovieName);
 });
