@@ -260,3 +260,13 @@ let movieImages = document.querySelectorAll('.movie-container img');
 movieImages.forEach(function(image) {
     image.addEventListener('click', addMovieName);
 });
+
+function showPage() {
+    let token = localStorage.getItem('token');
+    if (token === null) {
+        window.location.href = "Form_pattern.html";
+    }
+    else {
+        window.location.href = "booking.html";
+    }
+}
