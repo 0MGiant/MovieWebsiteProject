@@ -49,7 +49,7 @@ body {
     gap: 10px;
 }
 
-.profile-text {
+#profile-text {
     font-weight: bolder;
 }
 

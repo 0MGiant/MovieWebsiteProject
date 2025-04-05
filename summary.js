@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     selectedSeats = selectedSeats.filter(seat => seat.trim() !== "");
     const vipSeats = selectedSeats.filter(seat => seat.startsWith("VIP"));
     const regularSeats = selectedSeats.filter(seat => !seat.startsWith("VIP"));
-
+    console.log(localStorage);
     // แสดงข้อมูลการจอง
     if (selectedSeats.length > 0) {
         const totalPriceAmount = (regularSeats.length * 100) + (vipSeats.length*300);
@@ -33,3 +33,5 @@ document.addEventListener("DOMContentLoaded", () => {
         window.location.href = "index.html"; // กลับไปหน้าจองที่นั่ง
     });
 });
+
+

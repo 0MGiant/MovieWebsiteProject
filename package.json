@@ -1,0 +1,25 @@
+{
+  "name": "moviewebsiteproject",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000M\u0000o\u0000v\u0000i\u0000e\u0000W\u0000e\u0000b\u0000s\u0000i\u0000t\u0000e\u0000P\u0000r\u0000o\u0000j\u0000e\u0000c\u0000t\u0000\r\u0000 \u0000",
+  "main": "login.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/0MGiant/MovieWebsiteProject.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/0MGiant/MovieWebsiteProject/issues"
+  },
+  "homepage": "https://github.com/0MGiant/MovieWebsiteProject#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2"
+  }
+}

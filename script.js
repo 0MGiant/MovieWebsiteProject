@@ -1,5 +1,5 @@
 const langBtn = document.getElementById("lang-btn");
-const profileText = document.querySelector(".profile-text");
+const profileText = document.getElementById("profile-text");
 const poster = document.querySelectorAll(".movie-title");
 let currentLang = "EN"; // กำหนดค่าเริ่มต้นเป็นอังกฤษ
 
@@ -89,7 +89,7 @@ function createSeatLayout(containerId, rows, cols, isVIP = false) {
 document.addEventListener("DOMContentLoaded", function () {
     createSeatLayout("seating-chart-first", 4, 18); // ที่นั่งปกติ 4 แถว × 18 คอลัมน์
     createSeatLayout("seating-chart-second", 4, 18); // ที่นั่งปกติอีกชุด
-    createSeatLayout("vip-row", 2, 4, true); // ที่นั่ง VIP 2 แถว × 4 คอลัมน์
+    createSeatLayout("vip-row", 1, 8, true); // ที่นั่ง VIP 2 แถว × 4 คอลัมน์
 });
 //ระบบการจอง
 const BookingPage = document.getElementById("booking-page");
@@ -143,7 +143,8 @@ bookButton.addEventListener("click", () => {
     if (selectedSeats.length > 0) {
         // บันทึกที่นั่งที่จองลงใน localStorage
         const bookedSeats = localStorage.getItem("bookedSeats") || "";
-        localStorage.setItem("bookedSeats", [bookedSeats, selectedSeats].join(","));
+        const newSeats = selectedSeats.join(",");
+        localStorage.setItem("bookedSeats", bookedSeats ? bookedSeats + "," + newSeats : newSeats);
 
         // เปลี่ยนสถานะที่นั่งที่ถูกเลือกเป็นที่จอง
         selectedSeats.forEach(seatId => {

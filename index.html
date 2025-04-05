@@ -32,12 +32,13 @@
                     <a href="Form_pattern.html">
                         <i class='fas fa-user-circle' style='font-size:40px;object-fit: cover;'></i>
                     </a>
-                    <span class="profile-text">Profile</span>
+                    <span id="profile-text"><a href="#">Profile</a></span>
                 </div>
 
                 <div class="language-switcher">
                     <button id="lang-btn">EN</button>
                 </div>
+                <span id="logout" ><a href="#" onclick="logout()">Logout</a></span>
             </div>
         </div>
     </div>
@@ -63,9 +64,10 @@
     </div>
 
     <!--Zone Poster หนัง-->
-
-
-    <script src="script.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.min.js"></script>
+    <script src="script.js"></script>
+    <script src="login.js"></script>
+    <script src="profile.js"></script>
 </body>
 
 </html>
