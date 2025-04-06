@@ -9,9 +9,9 @@ document.addEventListener("DOMContentLoaded", () => {
     let personal_bookedSeats = JSON.parse(localStorage.getItem("personal-seats"));
 
     //นำค่าจาก localStorage เข้าตัวแปร selectedMovieTitle
-    selectedMovieTitle = localStorage.getItem("selectedMovieTitle");
-    selectedTheater = localStorage.getItem("selectedTheater");
-    selectedTime = localStorage.getItem("selectedTime");
+    let selectedMovieTitle = localStorage.getItem("selectedMovieTitle");
+    let selectedTheater = localStorage.getItem("selectedTheater");
+    let selectedTime = localStorage.getItem("selectedTime");
 
     // console.log(selectedMovieTitle);
     // console.log(selectedTheater);
@@ -20,44 +20,43 @@ document.addEventListener("DOMContentLoaded", () => {
     
     document.getElementById("movie-title").textContent = selectedMovieTitle; 
     document.getElementById("Theater").textContent = selectedTheater; 
-    
-    localStorage.removeItem("selectedMovieTitle");
-    localStorage.removeItem("selectedTheater");
-    localStorage.removeItem("selectedTime");
 
-    addToHistory(selectedMovieTitle, selectedTheater, selectedTime, personal_bookedSeats);
-    // localStorage.removeItem("bookingHistory");
     console.log(localStorage);
 
     function addToHistory(movie, theater, time, seats) {
-        const history = JSON.parse(localStorage.getItem("bookingHistory")) || {};
-      
-        const newBooking = {
-          theater: theater,
-          time: time,
-          seats: seats,
-          date: new Date().toISOString().split("T")[0]  // เก็บวันที่จอง
-        };
+        let history = JSON.parse(localStorage.getItem("bookingHistory")) || {};
+        
+        // const newBooking = {
+        //   theater: theater,
+        //   time: time,
+        //   seats: seats,
+        //   date: new Date().toISOString().split("T")[0]  // เก็บวันที่จอง
+        // };
       
         // ถ้าเบอร์นี้ยังไม่มีประวัติ ให้สร้าง array ใหม่
-        if (!history[movie]) {
-          history[movie] = [];
+
+        // ตั้งค่าใหม่ให้ history[movie][theater][time]
+        if(!history[movie]) {
+            history[movie] = {};
         }
-      
+        if(!history[movie][theater]) {
+            history[movie][theater] = {};
+        }
+        if(!history[movie][theater][time]) {
+            history[movie][theater][time] = [];
+        }
+
+        console.log(history);
         // เพิ่มข้อมูลใหม่ลงไป
-        history[movie].push(newBooking);
+        history[movie][theater][time] = history[movie][theater][time].concat(seats);
       
         // เซฟกลับเข้า localStorage
         localStorage.setItem("bookingHistory", JSON.stringify(history));
-      }
+    }
  
     document.getElementById("seat-list").textContent = personal_bookedSeats.join(", "); 
-
     // กรองข้อมูลที่นั่งที่ไม่ถูกต้อง (ช่องว่าง, null, หรือ undefined)
     personal_bookedSeats = personal_bookedSeats.filter(seat => seat.trim() !== "");
-    
-    // let a = {"number":[1,2,3]};
-    // localStorage.setItem("test", JSON.stringify(a));
     
     const vipSeats = personal_bookedSeats.filter(seat => seat.startsWith("VIP"));
     const regularSeats = personal_bookedSeats.filter(seat => !seat.startsWith("VIP"));
@@ -83,13 +82,22 @@ document.addEventListener("DOMContentLoaded", () => {
     // ฟังก์ชันสำหรับการชำระเงิน
     payButton.addEventListener("click", () => {
         // ดึงข้อมูลที่นั่งที่ถูกจองจาก Local Storage
-        let bookedSeats = JSON.parse(localStorage.getItem("bookedSeats")) || [];
+        // let bookedSeats = JSON.parse(localStorage.getItem("bookingHistory")) || [];
+
+        addToHistory(selectedMovieTitle, selectedTheater, selectedTime, personal_bookedSeats);
 
         // บันทึกการจองทั้งหมด
-        bookedSeats = [...bookedSeats, ...personal_bookedSeats];
-        localStorage.setItem("bookedSeats", JSON.stringify(bookedSeats));
+        // bookedSeats = [...bookedSeats, ...personal_bookedSeats];
+
+        // localStorage.setItem("bookedSeats", JSON.stringify(bookedSeats));
 
         localStorage.removeItem("personal_bookedSeats");
+
+        localStorage.removeItem("selectedMovieTitle");
+        localStorage.removeItem("selectedTheater");
+        localStorage.removeItem("selectedTime");
+
+        // localStorage.removeItem("bookingHistory");
 
         alert('การชำระเงินสำเร็จ!');
         window.location.href = "index.html"; // กลับไปหน้าจองที่นั่ง

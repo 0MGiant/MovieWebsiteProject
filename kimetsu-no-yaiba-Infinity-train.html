@@ -33,7 +33,7 @@
                 <div class="language-switcher">
                     <button id="lang-btn">EN</button>
                 </div>
-                <span id="logout" ><a href="#" onclick="logout()">Logout</a></span>
+                <span id="logout"><a href="#" onclick="logout()">Logout</a></span>
             </div>
         </div>
     </div>
@@ -74,15 +74,15 @@
                     <span class="theater-2d">2D</span>
 
                 </div>
-                <div class="time-theater">                      
-                        <div class="time-box" id="Theater_2" onclick=showPage()>
-                            <span class="time-title" id="11:00">11:00</span>
-                        </div>
+                <div class="time-theater">
+                    <div class="time-box" id="Theater_2" onclick=showPage()>
+                        <span class="time-title" id="11:00">11:00</span>
+                    </div>
                     </onc>
-                    
-                        <div class="time-box" id="Theater_2" onclick=showPage()>
-                            <span class="time-title" id="13:40">13:40</span>
-                        </div>
+
+                    <div class="time-box" id="Theater_2" onclick=showPage()>
+                        <span class="time-title" id="13:40">13:40</span>
+                    </div>
                 </div>
             </div>
             <div class="movie-theater-info">
@@ -115,7 +115,7 @@
             // แสดงผลชื่อหนังที่ถูกเลือกใน console
             console.log('Selected Theater:', selectedTheater);
             console.log('Selected Time:', selectedTime);
-            
+
             // เก็บค่าใน localStorage
             localStorage.setItem('selectedTheater', selectedTheater);
             localStorage.setItem('selectedTime', selectedTime);
@@ -134,4 +134,5 @@
     <script src="login.js"></script>
     <script src="profile.js"></script>
 </body>
+
 </html>

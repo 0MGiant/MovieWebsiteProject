@@ -61,16 +61,19 @@ function showSeat(time, theater) {
     window.location.href = newPageUrl;
 
 }
-function createSeatLayout(movie, theater, time) {
-    const container = document.getElementById(movie + "sea");
+function createSeatLayout(a, b, c) {
+    const container = document.getElementById("seating-chart-first");
     container.innerHTML = ""; // ล้างเนื้อหาเก่าก่อนสร้างใหม่
 
-    let selectedSeats = JSON.parse(localStorage.getItem("bookingHistory")) || [];
-    let movieBookedSeats = selectedSeats[movie][theater][time] || [];
+    let selectedSeats = JSON.parse(localStorage.getItem("bookingHistory")) || {};
 
+    let movieBookedSeats = selectedSeats[a] || [];
+    let movieBookedSeats2 = movieBookedSeats[b] || [];
+    let movieBookedSeats3 = movieBookedSeats2[c] || [];
+    
     console.log(localStorage);
     console.log(selectedSeats);
-    console.log(movieBookedSeats);
+    console.log(movieBookedSeats3);
 
     for (let row = 1; row < 10; row++) {
         let rowDiv = document.createElement("div");
@@ -95,7 +98,7 @@ function createSeatLayout(movie, theater, time) {
                 if (col % 2 == 0) {
                     seat.style.marginRight = "0px";
                 }
-                if (movieBookedSeats.includes(`VIP${col}`)) {
+                if (movieBookedSeats3.includes(`VIP${col}`)) {
                     seat.classList.remove("fa-couch");
                     seat.classList.add("fa-check-circle"); // เปลี่ยนเป็นเครื่องหมายเช็ค
                     seat.style.color = "#e8ce22"; // เปลี่ยนเป็นสีแดงส้ม
@@ -107,7 +110,7 @@ function createSeatLayout(movie, theater, time) {
                 const rowLetter = String.fromCharCode(64 + row);
                 seat.dataset.seatId = `${rowLetter}${col}`;
                 seat.style.color = "#63E6BE";
-                if (movieBookedSeats.includes(`${String.fromCharCode(64 + row)}${col}`)) {
+                if (movieBookedSeats3.includes(`${String.fromCharCode(64 + row)}${col}`)) {
                     seat.classList.remove("fa-couch");
                     seat.classList.add("fa-check-circle"); // เปลี่ยนเป็นเครื่องหมายเช็ค
                     seat.style.color = "#e8ce22"; // เปลี่ยนเป็นสีแดงส้ม
@@ -115,6 +118,7 @@ function createSeatLayout(movie, theater, time) {
                     seat.style.height = "min(2.2rem, 2.5vw)";
                 }
             }
+
             // เพิ่ม Event Listener สำหรับเลือกที่นั่ง
             seat.addEventListener("click", () => toggleSeat(seat));
             rowDiv.appendChild(seat);
@@ -122,10 +126,13 @@ function createSeatLayout(movie, theater, time) {
         container.appendChild(rowDiv);
     }
 }
-
 // เรียกใช้ฟังก์ชันสร้างที่นั่งเมื่อหน้าโหลดเสร็จ
 document.addEventListener("DOMContentLoaded", function () {
-    createSeatLayout("Kimetsu No Yaiba Infinity Train", "theater_2", "11:00");     
+    let a = localStorage.getItem("selectedMovieTitle");
+    let b = localStorage.getItem("selectedTheater");
+    let c = localStorage.getItem("selectedTime");
+    createSeatLayout(a, b, c);     
+    // createSeatLayout();     
 });
 
 //ระบบการจอง
@@ -229,7 +236,12 @@ resetButton.addEventListener("click", () => {
     localStorage.removeItem("bookedSeats");
     localStorage.removeItem("test");
     localStorage.removeItem("personal-seats");
+    localStorage.removeItem("selectedMovieTitle");
+    localStorage.removeItem("selectedTheater");
+    localStorage.removeItem("selectedTime");
+    localStorage.removeItem("bookingHistory");
     // createSeats();
+    window.location.href = "index.html";
     selectedSeats = [];
     bookButton.disabled = true;
 });
