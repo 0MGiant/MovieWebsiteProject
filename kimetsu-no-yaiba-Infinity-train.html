@@ -65,7 +65,7 @@
         <div class="booking-time-zone">
             <div class="movie-theater-info">
                 <div class="info">
-                    <div class="title-theater">Theater 2 <strong>|</strong>
+                    <div class="title-theater">Theater 2<strong>|</strong>
 
                     </div>
                     <span class="sound"><i class="fas fa-volume-high"></i> JP/TH <strong>|</strong></span>
@@ -74,18 +74,15 @@
                     <span class="theater-2d">2D</span>
 
                 </div>
-                <div class="time-theater">
-                    <!--<a href="booking.html?movie=kimetsu-infinity-train&time=11:00&theater=cinema1">-->                        
-                        <div class="time-box" onclick=showPage()>
-                            <span class="time-title">11:00</span>
+                <div class="time-theater">                      
+                        <div class="time-box" id="Theater_2" onclick=showPage()>
+                            <span class="time-title" id="11:00">11:00</span>
                         </div>
                     </onc>
                     
-                    <a href="booking.html?movie=kimetsu-infinity-train&time=13:40&theater=cinema2">
-                        <div class="time-box">
-                            <span class="time-title">13:40</span>
+                        <div class="time-box" id="Theater_2" onclick=showPage()>
+                            <span class="time-title" id="13:40">13:40</span>
                         </div>
-                    </a>
                 </div>
             </div>
             <div class="movie-theater-info">
@@ -108,9 +105,33 @@
         </div>
 
     </div>
+    <script>
+        // ฟังก์ชันที่จะถูกเรียกเมื่อผู้ใช้คลิกที่ภาพหนัง
+        function handleMovieClick(event) {
+            // หาชื่อหนังจากแอตทริบิวต์ alt ของ <img>
+            selectedTheater = event.currentTarget.querySelector('.time-box').getAttribute('id');
+            selectedTime = event.currentTarget.querySelector('.time-title').getAttribute('id');
+
+            // แสดงผลชื่อหนังที่ถูกเลือกใน console
+            console.log('Selected Theater:', selectedTheater);
+            console.log('Selected Time:', selectedTime);
+            
+            // เก็บค่าใน localStorage
+            localStorage.setItem('selectedTheater', selectedTheater);
+            localStorage.setItem('selectedTime', selectedTime);
+            console.log(localStorage);
+
+            // นำตัวแปรไปใช้งานต่อไป เช่น ไปยังหน้าอื่น หรือการเปลี่ยนแปลง UI
+        }
+
+        // เพิ่ม event listener ให้กับแต่ละ div .movie-container
+        document.querySelectorAll('.time-theater').forEach(function (movieTheater) {
+            movieTheater.addEventListener('click', handleMovieClick);
+        });
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.min.js"></script>
     <script src="script.js"></script>
     <script src="login.js"></script>
     <script src="profile.js"></script>
-
 </body>
+</html>

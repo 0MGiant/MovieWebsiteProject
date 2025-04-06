@@ -38,7 +38,7 @@
                 <div class="language-switcher">
                     <button id="lang-btn">EN</button>
                 </div>
-                <span id="logout" ><a href="#" onclick="logout()">Logout</a></span>
+                <span id="logout"><a href="#" onclick="logout()">Logout</a></span>
             </div>
         </div>
     </div>
@@ -46,7 +46,7 @@
     <div class="movies-wrapper">
         <div class="movie-container column-layout">
             <a href="kimetsu-no-yaiba-Infinity-train.html">
-                <img src="infinity-train.jpg">
+                <img src="infinity-train.jpg" alt="Kimetsu No Yaiba Infinity Train">
             </a>
             <div class="movie-title">
                 Kimetsu No Yaiba Infinity train
@@ -55,15 +55,36 @@
 
         <div class="movie-container column-layout">
             <a href="kimetsu-no-yaiba-Infinity-castle.html">
-                <img src="infinity-castle.jpg">
+                <img src="infinity-castle.jpg" alt="Kimetsu No Yaiba Infinity Castle">
             </a>
             <div class="movie-title">
                 Kimetsu No Yaiba Infinity Castle
             </div>
         </div>
     </div>
-
     <!--Zone Poster หนัง-->
+    <script>
+        // ฟังก์ชันที่จะถูกเรียกเมื่อผู้ใช้คลิกที่ภาพหนัง
+        function handleMovieClick(event) {
+            // หาชื่อหนังจากแอตทริบิวต์ alt ของ <img>
+            selectedMovieTitle = event.currentTarget.querySelector('img').getAttribute('alt');
+
+            // แสดงผลชื่อหนังที่ถูกเลือกใน console
+            console.log('Selected Movie:', selectedMovieTitle);
+
+
+            // เก็บค่าใน localStorage
+            localStorage.setItem('selectedMovieTitle', selectedMovieTitle);
+
+
+            // นำตัวแปรไปใช้งานต่อไป เช่น ไปยังหน้าอื่น หรือการเปลี่ยนแปลง UI
+        }
+
+        // เพิ่ม event listener ให้กับแต่ละ div .movie-container
+        document.querySelectorAll('.movie-container').forEach(function (movieContainer) {
+            movieContainer.addEventListener('click', handleMovieClick);
+        });
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.min.js"></script>
     <script src="script.js"></script>
     <script src="login.js"></script>
