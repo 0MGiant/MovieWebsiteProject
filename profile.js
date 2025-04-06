@@ -7,8 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const token = localStorage.getItem("token");
     const navProfile = document.getElementById("profile-text");
     const navLogout = document.getElementById("logout");
-    console.log("Token:", token);  // เช็คค่า token ว่ามีหรือไม่
-    console.log("Profile Text Element:", navProfile);  // เช็คว่าเจอ element หรือไม่
     
     if (token && navLogout) {
         navLogout.style.display = "block";  // แสดงปุ่ม logout

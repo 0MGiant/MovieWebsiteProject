@@ -280,7 +280,7 @@ a:hover {
     text-decoration: none;
 }
 
-.imglogo {
+#imglogo {
     width: fit-content;
     height: 55px;
 }
@@ -427,6 +427,11 @@ button{
 }
 #seats-list{
     list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 8vh;
+    font-size: 32px;
     
 }
 li{

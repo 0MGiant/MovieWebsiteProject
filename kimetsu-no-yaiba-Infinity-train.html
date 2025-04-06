@@ -18,7 +18,7 @@
         <div class="navbar-container">
             <div class="logo-container">
                 <a href="index.html">
-                    <img class="imglogo" src="logoWeb.png">
+                    <img id="imglogo" src="logoWeb.png">
                 </a>
 
             </div>
@@ -95,8 +95,8 @@
                     <span class="theater-imax">IMAX</span>
                 </div>
                 <div class="time-theater">
-                    <div class="time-box">
-                        <span class="time-title">16:00</span>
+                    <div class="time-box" id="Theater_3" onclick=showPage()>
+                        <span class="time-title" id="16:00">16:00</span>
                     </div>
 
 
@@ -108,9 +108,10 @@
     <script>
         // ฟังก์ชันที่จะถูกเรียกเมื่อผู้ใช้คลิกที่ภาพหนัง
         function handleMovieClick(event) {
+            const timeBox = event.target.closest('.time-box');
             // หาชื่อหนังจากแอตทริบิวต์ alt ของ <img>
-            selectedTheater = event.currentTarget.querySelector('.time-box').getAttribute('id');
-            selectedTime = event.currentTarget.querySelector('.time-title').getAttribute('id');
+            selectedTheater = timeBox.getAttribute('id');
+            selectedTime =  timeBox.querySelector('.time-title').getAttribute('id');
 
             // แสดงผลชื่อหนังที่ถูกเลือกใน console
             console.log('Selected Theater:', selectedTheater);
