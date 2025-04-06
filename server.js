@@ -50,6 +50,6 @@ app.post("/login", (req, res) => {
 });
 
 // เริ่มเซิร์ฟเวอร์ ในกรณีที่ใช้ Live server
-app.listen(5501, () => console.log("Server running on port 5501"));
+app.listen(3000, () => console.log("Server running on port 3000"));
 // เริ่มเซิร์ฟเวอร์ ในกรณีที่ไม่ใช้ Live server
 //app.listen(3000, () => console.log("Server running on port 3000"));

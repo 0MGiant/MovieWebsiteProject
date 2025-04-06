@@ -124,37 +124,9 @@ document.addEventListener("DOMContentLoaded", function () {
     let a = localStorage.getItem("selectedMovieTitle");
     let b = localStorage.getItem("selectedTheater");
     let c = localStorage.getItem("selectedTime");
+
     createSeatLayout(a, b, c);
-    seat.addEventListener("click", () => toggleSeat(seat));
-    /*document.querySelectorAll(".fa-couch").forEach(seat => {
-        seat.addEventListener("click", function () {
-            let selectedSeats = JSON.parse(localStorage.getItem("bookingHistory")) || {};
-    
-            let movieBookedSeats = selectedSeats[a] || [];
-            let movieBookedSeats2 = movieBookedSeats[b] || [];
-            let movieBookedSeats3 = movieBookedSeats2[c] || [];
-            
-            if (!this.dataset.originalColor) {
-                this.dataset.originalColor = getComputedStyle(this).color; // เก็บสีเดิม
-            }
-            this.classList.toggle("selected");
-            console.log(this.seat);
-            //console.log(this.classList);
-            //ถ้า มี seat นี้อยู่ใน history จะให้เป็น booked
-            if (movieBookedSeats3.includes(this.id)) { // ใช้ ID หรือค่าที่เหมาะสมในการตรวจสอบ
-                this.classList.add("booked"); // ถ้าที่นั่งถูกจองแล้ว
-            }else if (this.classList.contains("selected")) {
-                this.classList.remove("fa-couch");
-                this.classList.add("fa-check-circle"); // เปลี่ยนเป็น icon อื่น
-                this.style.color = "#ef6347";
-            } else {
-                this.classList.remove("fa-check-circle");
-                this.classList.add("fa-couch"); // เปลี่ยนกลับเป็น icon เดิม
-                this.style.color = this.dataset.originalColor; // คืนค่าสีเดิม
-            }
-        });
-    });*/
-    // createSeatLayout();     
+    seat.addEventListener("click", () => toggleSeat(seat));        
 });
 
 function toggleSeat(seat) {
@@ -261,6 +233,7 @@ resetButton.addEventListener("click", () => {
     localStorage.removeItem("bookedSeats");
     localStorage.removeItem("test");
     localStorage.removeItem("personal-seats");
+    localStorage.removeItem("personal-info");
     localStorage.removeItem("selectedMovieTitle");
     localStorage.removeItem("selectedTheater");
     localStorage.removeItem("selectedTime");

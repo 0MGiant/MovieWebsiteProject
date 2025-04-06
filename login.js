@@ -11,7 +11,7 @@ document.querySelector("form").addEventListener("submit", async (event) => {
     }
 
     try {
-        const response = await fetch("http://localhost:5501/login", {
+        const response = await fetch("http://localhost:3000/login", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ phone })
