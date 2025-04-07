@@ -431,7 +431,7 @@ button{
     justify-content: center;
     align-items: center;
     margin-bottom: 8vh;
-    font-size: 32px;
+    
     
 }
 li{
@@ -445,7 +445,7 @@ li{
     background: rgb(255, 255, 255);
     border-radius: 15px;
     padding: 20px;
-    width: 80vh;
+    width: max-content;
     margin: auto;
 }
 .poster-summary{
@@ -470,7 +470,6 @@ li{
     background: black;
     color: white;
     padding: 2px 5px;
-    font-size: 12px;
     border-radius: 5px;
     display: flex;
     justify-content: center;
@@ -480,7 +479,9 @@ li{
 .info-row{
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items:flex-end;           /* จัดให้อยู่กึ่งกลางแนวตั้ง */
+  /* หรือเพิ่ม gap ได้หากต้องการเว้นช่องว่างระหว่างสองฝั่ง */
+  
 
 }
 .theater-summary {
@@ -500,7 +501,7 @@ li{
     justify-content: center;
     align-items: center;
     font-weight: bold;
-    width: 100px;
+    width: max-content;
     height: 50px;
 }
 #pay-btn, #back-btn {
@@ -509,7 +510,7 @@ li{
     border-radius: 5px;
     font-weight: bold;
     cursor: pointer;
-    width: 100px;
+    width: 150px;
     height: 50px;
 }
 .audio-theater {
@@ -518,7 +519,7 @@ li{
 }
 .button-field{
     display: flex;
-    margin-top: 150px;
+    margin-top: 75px;
     justify-content: center; /* จัดปุ่มตรงกลาง */
     align-items: center;
     gap: 10px; /* เพิ่มช่องว่างระหว่างปุ่ม */
