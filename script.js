@@ -50,7 +50,6 @@ logo.addEventListener("click", function () {
     localStorage.removeItem("selectedTheater");
     localStorage.removeItem("selectedTime");
 });
-//
 
 let selectedSeats = [];
 let personal_bookedSeats = [];
@@ -126,11 +125,10 @@ document.addEventListener("DOMContentLoaded", function () {
     let c = localStorage.getItem("selectedTime");
 
     createSeatLayout(a, b, c);
-    seat.addEventListener("click", () => toggleSeat(seat));        
+    seat.addEventListener("click", () => toggleSeat(seat));
 });
 
 function toggleSeat(seat) {
-    //console.log(seat);
     personal_bookedSeats = JSON.parse(localStorage.getItem("selectedSeats")) || [];
     const seatId = seat.dataset.seatId;
     let bookingHistory = JSON.parse(localStorage.getItem("bookingHistory")) || {};
@@ -139,6 +137,10 @@ function toggleSeat(seat) {
     const c = localStorage.getItem("selectedTime");
     console.log(seatId);
     const isBooked = seat.classList.contains("booked") || (bookingHistory[a]?.[b]?.[c]?.includes(seatId));
+    let token = localStorage.getItem("token");
+    token = jwt_decode(token);
+    token = token.phone;
+
 
     if (isBooked) {
         alert("ที่นั่งนี้ถูกจองแล้ว!");
@@ -151,36 +153,44 @@ function toggleSeat(seat) {
 
     seat.classList.toggle("selected");
 
-
-    if (seat.classList.contains("selected")) {
-        seat.classList.remove("fa-couch");
-        seat.classList.add("fa-check-circle");
-        seat.style.color = "#ef6347";
-        selectedSeats.push(seatId);
-    } else {
-        seat.classList.remove("fa-check-circle");
-        seat.classList.add("fa-couch");
-        seat.style.color = seat.dataset.originalColor;
-        selectedSeats = selectedSeats.filter(id => id !== seatId);
+    if(token !== "0123456789") {
+        if (seat.classList.contains("selected")) {
+            seat.classList.remove("fa-couch");
+            seat.classList.add("fa-check-circle");
+            seat.style.color = "#ef6347";
+            selectedSeats.push(seatId);
+        } else {
+            seat.classList.remove("fa-check-circle");
+            seat.classList.add("fa-couch");
+            seat.style.color = seat.dataset.originalColor;
+            selectedSeats = selectedSeats.filter(id => id !== seatId);
+        }
     }
-
+    else {
+        alert("GET YOUR ASS OUT OF HERE!");
+        return;
+    }
     localStorage.setItem("selectedSeats", JSON.stringify(selectedSeats));  // บันทึกสถานะที่นั่งใน localStorage
     updateSelectedSeats();
 }
-//ระบบการจอง
+
 const BookingPage = document.getElementById("booking-page");
 const SummaryPage = document.getElementById("summary-page");
 const bookingSeat = document.getElementsByClassName("booking-container");
 const selectedSeatsList = document.getElementById("seats-list");
-const bookButton = document.getElementById("book-seats");
 
+const bookButton = document.getElementById("book-seats");
 const backButton = document.getElementById("back-movie");
+const resetButton = document.getElementById('reset-btn');
+
 backButton.addEventListener("click", () => {
-    window.location.href = "kimetsu-no-yaiba-Infinity-train.html";
+    let movieName = localStorage.getItem("selectedMovieTitle");
+    movieName = movieName.toLowerCase().replace(/ /g, "-") + ".html";
+
+    window.location.href = movieName;
     localStorage.removeItem("selectedTheater");
     localStorage.removeItem("selectedTime");
 });
-
 
 // ฟังก์ชันสำหรับการจองที่นั่ง
 bookButton.addEventListener("click", () => {
@@ -197,9 +207,7 @@ bookButton.addEventListener("click", () => {
             seat.innerHTML = `จอง ${seatId}`;
             seat.setAttribute('disabled', 'true');
         });
-        console.log(localStorage.getItem("bookedSeats"));
         // เคลียร์การเลือกที่นั่ง
-        // selectedSeats = [];
         bookButton.disabled = true;
         console.log(localStorage);
 
@@ -223,11 +231,6 @@ function updateSelectedSeats() {
 function showSummaryPage() {
     window.location.href = "summary.html";
 }
-function showMoviePage() {
-    window.location.href = "kimetsu-no-yaiba-Infinity-train.html";
-}
-
-const resetButton = document.getElementById('reset-btn');
 
 resetButton.addEventListener("click", () => {
     localStorage.removeItem("bookedSeats");
@@ -252,5 +255,8 @@ function showPage() {
     else {
         window.location.href = "booking.html";
     }
+}
 
+function showHistory() {
+    window.location.href = "history.html";
 }
