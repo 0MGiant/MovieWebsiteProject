@@ -70,14 +70,12 @@
         function handleMovieClick(event) {
             // หาชื่อหนังจากแอตทริบิวต์ alt ของ <img>
             selectedMovieTitle = event.currentTarget.querySelector('img').getAttribute('alt');
-
+            selectedMoviePoster = event.currentTarget.querySelector('img').getAttribute('src');
             // แสดงผลชื่อหนังที่ถูกเลือกใน console
-            console.log('Selected Movie:', selectedMovieTitle);
-
 
             // เก็บค่าใน localStorage
             localStorage.setItem('selectedMovieTitle', selectedMovieTitle);
-
+            localStorage.setItem('selectedPoster', selectedMoviePoster);
 
             // นำตัวแปรไปใช้งานต่อไป เช่น ไปยังหน้าอื่น หรือการเปลี่ยนแปลง UI
         }

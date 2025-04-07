@@ -7,79 +7,14 @@
     <title>Booking History</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
             background-color: #1a1a1a;
             color: white;
             font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+
             height: 100vh;
             margin: 0;
             flex-direction: column;
-        }
-
-        .container {
-            text-align: center;
-            width: 90%;
-            max-width: 900px;
-            margin-top: 20px;
-        }
-
-        h1 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-        }
-
-        /* Template for booking information */
-        .history-item {
-            background-color: #333;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 10px 0;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease;
-        }
-
-        .history-item:hover {
-            transform: scale(1.05);
-        }
-
-        .history-item p {
-            margin: 10px 0;
-            font-size: 1rem;
-        }
-
-        .history-item .date {
-            color: #aaa;
-            font-size: 0.85rem;
-        }
-
-        /* Style for the individual item labels */
-        .history-item .label {
-            font-weight: bold;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 600px) {
-            .container {
-                width: 100%;
-                padding: 10px;
-            }
-
-            h1 {
-                font-size: 1.5rem;
-            }
-        }
-        #user {
-            font-size: 30px;
-            color: goldenrod;
         }
     </style>
 </head>
@@ -91,10 +26,9 @@
                 <a href="index.html">
                     <img id="imglogo" src="logoWeb.png">
                 </a>
-            </div>            
-            <div class="Booking-History">
-                <button id="history" onclick="showHistory()">Booking History</button>
             </div>
+
+            <button id="reset-btn">Reset Booking</button>
             <div class="profile-container">
                 <div class="profile-text-container">
                     <a href="Form_pattern.html">
@@ -109,37 +43,52 @@
             </div>
         </div>
     </div>
-    <div class="container">
+    <div class="historyContainer">
         <h1>Booking History</h1>
         <div id="history-container"></div>
     </div>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-    // Load history from localStorage
-    const historyContainer = document.getElementById("history-container");
+        document.addEventListener("DOMContentLoaded", function () {
+            // Load history from localStorage
+            const historyContainer = document.getElementById("history-container");
+            const resetButton = document.getElementById('reset-btn');
+            resetButton.addEventListener("click", () => {
+                localStorage.removeItem("bookedSeats");
+                localStorage.removeItem("test");
+                localStorage.removeItem("personal-seats");
+                localStorage.removeItem("personal-info");
+                localStorage.removeItem("selectedMovieTitle");
+                localStorage.removeItem("selectedTheater");
+                localStorage.removeItem("selectedTime");
+                localStorage.removeItem("bookingHistory");
+                // createSeats();
+                
+                selectedSeats = [];
+                bookButton.disabled = true;
+            });
+            // Function to display the history items
+            function displayHistory() {
+                let personalInfo = JSON.parse(localStorage.getItem("personal-info")) || [];
 
-    // Function to display the history items
-    function displayHistory() {
-        let personalInfo = JSON.parse(localStorage.getItem("personal-info")) || [];
+                // Clear current content
+                historyContainer.innerHTML = "";
 
-        // Clear current content
-        historyContainer.innerHTML = "";
+                // Check if there is no booking data
+                if (personalInfo.length === 0) {
+                    const noDataDiv = document.createElement("div");
+                    noDataDiv.classList.add("history-item");
+                    noDataDiv.innerHTML = "<p>ไม่มีการลงทะเบียน</p>";
+                    historyContainer.appendChild(noDataDiv);
+                } else {
+                    // Loop through the stored history and display each booking
+                    personalInfo.forEach((booking) => {
+                        const bookingDiv = document.createElement("div");
+                        bookingDiv.classList.add("history-item");
 
-        // Check if there is no booking data
-        if (personalInfo.length === 0) {
-            const noDataDiv = document.createElement("div");
-            noDataDiv.classList.add("history-item");
-            noDataDiv.innerHTML = "<p>ไม่มีการลงทะเบียน</p>";
-            historyContainer.appendChild(noDataDiv);
-        } else {
-            // Loop through the stored history and display each booking
-            personalInfo.forEach((booking) => {
-                const bookingDiv = document.createElement("div");
-                bookingDiv.classList.add("history-item");
-
-                bookingDiv.innerHTML = `
-                    <p id="user"> ${booking.user}</p>
+                        bookingDiv.innerHTML = `
+                    <h3 id="user">${booking.user}</h3>
+                    <hr>
                     <p><span class="label">Movie:</span> ${booking.movie}</p>
                     <p><span class="label">Theater:</span> ${booking.theater}</p>
                     <p><span class="label">Time:</span> ${booking.time}</p>
@@ -148,19 +97,20 @@
                     <p class="date"><span class="label">Date:</span> ${booking.date}</p>
                 `;
 
-                historyContainer.appendChild(bookingDiv);
-            });
-        }
-    }
+                        historyContainer.appendChild(bookingDiv);
+                    });
+                }
+            }
 
-    // Display the history when the page is loaded
-    displayHistory();
+            // Display the history when the page is loaded
+            displayHistory();
 
-    // Optional: If you want to update every time the user adds a booking, you can call displayHistory() after addToHistory() is called
-});
+            // Optional: If you want to update every time the user adds a booking, you can call displayHistory() after addToHistory() is called
+        });
 
 
     </script>
+
 </body>
 
 </html>

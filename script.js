@@ -53,6 +53,15 @@ logo.addEventListener("click", function () {
 
 let selectedSeats = [];
 let personal_bookedSeats = [];
+let token = localStorage.getItem("token");
+token = jwt_decode(token);
+token = token.phone;
+const historyContainer = document.getElementById("history");
+    if(token == "0123456789") {
+        historyContainer.style.display = "block";
+    }else{
+        historyContainer.style.display = "none";
+    }
 function createSeatLayout(a, b, c) {
     const container = document.getElementById("seating-chart-first");
     container.innerHTML = ""; // ล้างเนื้อหาเก่าก่อนสร้างใหม่
@@ -123,7 +132,6 @@ document.addEventListener("DOMContentLoaded", function () {
     let a = localStorage.getItem("selectedMovieTitle");
     let b = localStorage.getItem("selectedTheater");
     let c = localStorage.getItem("selectedTime");
-
     createSeatLayout(a, b, c);
     seat.addEventListener("click", () => toggleSeat(seat));
 });
@@ -137,9 +145,6 @@ function toggleSeat(seat) {
     const c = localStorage.getItem("selectedTime");
     console.log(seatId);
     const isBooked = seat.classList.contains("booked") || (bookingHistory[a]?.[b]?.[c]?.includes(seatId));
-    let token = localStorage.getItem("token");
-    token = jwt_decode(token);
-    token = token.phone;
 
 
     if (isBooked) {
@@ -181,7 +186,6 @@ const selectedSeatsList = document.getElementById("seats-list");
 
 const bookButton = document.getElementById("book-seats");
 const backButton = document.getElementById("back-movie");
-const resetButton = document.getElementById('reset-btn');
 
 backButton.addEventListener("click", () => {
     let movieName = localStorage.getItem("selectedMovieTitle");
@@ -231,21 +235,6 @@ function updateSelectedSeats() {
 function showSummaryPage() {
     window.location.href = "summary.html";
 }
-
-resetButton.addEventListener("click", () => {
-    localStorage.removeItem("bookedSeats");
-    localStorage.removeItem("test");
-    localStorage.removeItem("personal-seats");
-    localStorage.removeItem("personal-info");
-    localStorage.removeItem("selectedMovieTitle");
-    localStorage.removeItem("selectedTheater");
-    localStorage.removeItem("selectedTime");
-    localStorage.removeItem("bookingHistory");
-    // createSeats();
-    window.location.href = "index.html";
-    selectedSeats = [];
-    bookButton.disabled = true;
-});
 
 function showPage() {
     let token = localStorage.getItem('token');

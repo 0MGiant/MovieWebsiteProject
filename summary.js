@@ -12,10 +12,11 @@ document.addEventListener("DOMContentLoaded", () => {
     let selectedMovieTitle = localStorage.getItem("selectedMovieTitle");
     let selectedTheater = localStorage.getItem("selectedTheater");
     let selectedTime = localStorage.getItem("selectedTime");
-
+    let selectedPoster = localStorage.getItem("selectedPoster")
     document.getElementById("movie-title").textContent = selectedMovieTitle;
     document.getElementById("Theater").textContent = selectedTheater;
-
+    document.getElementById("poster").src= selectedPoster;
+    document.getElementsByClassName("date-time")[0].textContent = selectedTime;
     console.log(localStorage);
 
     function addToHistory(movie, theater, time, seats, price) {
@@ -97,6 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         localStorage.removeItem("selectedMovieTitle");
         localStorage.removeItem("selectedTheater");
+        localStorage.removeItem("selectedMoviePoster");
         localStorage.removeItem("selectedTime");
 
         // localStorage.removeItem("bookingHistory");

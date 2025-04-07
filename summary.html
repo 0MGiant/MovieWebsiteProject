@@ -26,7 +26,7 @@
                 <a href="index.html">
                     <img id="imglogo" src="logoWeb.png">
                 </a>
-            </div>
+            </div>            
             <div class="Booking-History">
                 <button id="history" onclick="showHistory()">Booking History</button>
             </div>
@@ -37,7 +37,6 @@
                     </a>
                     <span id="profile-text"><a href="#">Profile</a></span>
                 </div>
-
                 <div class="language-switcher">
                     <button id="lang-btn">EN</button>
                 </div>
@@ -48,7 +47,7 @@
     <div id="summary-page">
         <div class="ticket-container">
             <div class="poster-summary">
-                <img src="infinity-train.jpg">
+                <img id="poster"src="None" alt="Movie Poster">
             </div>
             <div class="movie-info-summary">
                 <h2 id="movie-title">None</h2>
@@ -57,7 +56,10 @@
                         <span class="audio-summary">JP/TH</span>
                         <p class="theater" id="Theater"><strong>None</strong></p>
                     </div>
-                    <p class="date-time">9 April 2025 11:00</p>
+                    <div style="display: flex; gap: 8px;">
+                        <p>9 April 2025</p>
+                        <p class="date-time"></p>
+                      </div>
                 </div>
                 <hr>
                 <p class="seats-summary">Selected Seats</p>
