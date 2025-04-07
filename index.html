@@ -38,7 +38,8 @@
                     <span id="profile-text"><a href="#">Profile</a></span>
                 </div>
                 <div class="language-switcher">
-                    <button id="lang-btn">EN</button>
+                    <button onclick="changeLanguage('en')">TH ไทย</button>
+                    <button onclick="changeLanguage('th')">EN English</button>
                 </div>
                 <span id="logout"><a href="#" onclick="logout()">Logout</a></span>
             </div>
@@ -50,8 +51,8 @@
             <a href="kimetsu-no-yaiba-Infinity-train.html">
                 <img src="infinity-train.jpg" alt="Kimetsu No Yaiba Infinity Train">
             </a>
-            <div class="movie-title">
-                Kimetsu No Yaiba Infinity train
+            <div class="movie-title" data-translate="movie-title-1">
+                Kimetsu No Yaiba Infinity Train
             </div>
         </div>
 
@@ -59,7 +60,7 @@
             <a href="kimetsu-no-yaiba-Infinity-castle.html">
                 <img src="infinity-castle.jpg" alt="Kimetsu No Yaiba Infinity Castle">
             </a>
-            <div class="movie-title">
+            <div class="movie-title" data-translate="movie-title-2">
                 Kimetsu No Yaiba Infinity Castle
             </div>
         </div>
@@ -89,6 +90,7 @@
     <script src="script.js"></script>
     <script src="login.js"></script>
     <script src="profile.js"></script>
+    <script src="translate.js"></script>
 </body>
 
 </html>

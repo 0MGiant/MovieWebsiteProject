@@ -38,7 +38,8 @@
                     <span id="profile-text"><a href="#">Profile</a></span>
                 </div>
                 <div class="language-switcher">
-                    <button id="lang-btn">EN</button>
+                    <button onclick="changeLanguage('en')">TH ไทย</button>
+                    <button onclick="changeLanguage('th')">EN English</button>
                 </div>
                 <span id="logout"><a href="#" onclick="logout()">Logout</a></span>
             </div>
@@ -62,15 +63,15 @@
                       </div>
                 </div>
                 <hr>
-                <p class="seats-summary">Selected Seats</p>
+                <p class="seats-summary" data-translate="Selected-Seats">Selected Seats</p>
                 <br>
                 <p id="seat-list">None</p>
                 <div class="button-field">
-                    <div class="total-summary">Total :
+                    <div class="total-summary" data-translate="total-amount">Total :
                         <span id="total-price"></span>
                     </div>
-                    <button id="back-btn">Back</button>
-                    <button id="pay-btn">Checkout</button>
+                    <button id="back-btn" data-translate="back">Back</button>
+                    <button id="pay-btn"data-translate="checkout">Checkout</button>
                 </div>
             </div>
         </div>
@@ -80,6 +81,7 @@
     <script src="login.js"></script>
     <script src="profile.js"></script>
     <script src="summary.js"></script>
+    <script src="translate.js"></script>
 </body>
 
 </html>

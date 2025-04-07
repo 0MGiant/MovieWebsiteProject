@@ -26,7 +26,7 @@
                 <a href="index.html">
                     <img id="imglogo" src="logoWeb.png">
                 </a>
-            </div>
+            </div>            
             <div class="Booking-History">
                 <button id="history" onclick="showHistory()">Booking History</button>
             </div>
@@ -37,9 +37,9 @@
                     </a>
                     <span id="profile-text"><a href="#">Profile</a></span>
                 </div>
-
                 <div class="language-switcher">
-                    <button id="lang-btn">EN</button>
+                    <button onclick="changeLanguage('en')">TH ไทย</button>
+                    <button onclick="changeLanguage('th')">EN English</button>
                 </div>
                 <span id="logout"><a href="#" onclick="logout()">Logout</a></span>
             </div>
@@ -47,7 +47,7 @@
     </div>
     <div id="booking-page">
         <div class="booking-container">
-            <div class="screen">📽️ Screen</div>
+            <div class="screen" data-translate="screen">📽️Screen</div>
             <ul id="seats-list"></ul>
             <!-- ที่นั่งโซนปกติ -->
             <div id="seating-chart-first" class="seating-chart"></div>
@@ -57,8 +57,8 @@
             <div class="button-booking">
                 <!-- ปุ่ม จองที่จะlink ไปยังหน้าถัดไป,ปุ่มย้อนหลับหน้าหนังที่เลือกมา-->
                 
-                <button id="book-seats" disabled>Booking</button>
-                <button id="back-movie">Back</button>
+                <button id="book-seats" disabled data-translate="booking">Booking</button>
+                <button id="back-movie" data-translate="back">Back</button>
             </div>
 
             <div class="seat-container">
@@ -78,6 +78,7 @@
     <script src="script.js"></script>
     <script src="login.js"></script>
     <script src="profile.js"></script>
+    <script src="translate.js"></script>
 </body>
 
 

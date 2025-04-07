@@ -1,38 +1,38 @@
 const langBtn = document.getElementById("lang-btn");
 const profileText = document.querySelector(".profile-text");
 const poster = document.querySelectorAll(".movie-title");
-let currentLang = "EN"; // กำหนดค่าเริ่มต้นเป็นอังกฤษ
+// let currentLang = "EN"; // กำหนดค่าเริ่มต้นเป็นอังกฤษ
 
-const translations = {
-    EN: {
-        profile: "Profile",
-        button: "EN",
-        poster1: "Kimetsu No Yaiba Infinity train",
-        poster2: "Kimetsu No Yaiba Infinity Castle"
-    },
-    TH: {
-        profile: "โปรไฟล์",
-        button: "TH",
-        poster1: "ดาบพิฆาตอสูร ศึกรถไฟสู่นิรันดร์",
-        poster2: "ดาบพิฆาตอสูร ภาคปราสาทไร้ขอบเขต พาร์ท 1"
-    }
-};
-// ฟังก์ชันเปลี่ยนภาษา
-function switchLanguage() {
-    if (currentLang === "EN") {
-        currentLang = "TH";
-    } else {
-        currentLang = "EN";
-    }
-    profileText.textContent = translations[currentLang].profile;
-    langBtn.textContent = translations[currentLang].button;
+// const translations = {
+//     EN: {
+//         profile: "Profile",
+//         button: "EN",
+//         poster1: "Kimetsu No Yaiba Infinity train",
+//         poster2: "Kimetsu No Yaiba Infinity Castle"
+//     },
+//     TH: {
+//         profile: "โปรไฟล์",
+//         button: "TH",
+//         poster1: "ดาบพิฆาตอสูร ศึกรถไฟสู่นิรันดร์",
+//         poster2: "ดาบพิฆาตอสูร ภาคปราสาทไร้ขอบเขต พาร์ท 1"
+//     }
+// };
+// // ฟังก์ชันเปลี่ยนภาษา
+// function switchLanguage() {
+//     if (currentLang === "EN") {
+//         currentLang = "TH";
+//     } else {
+//         currentLang = "EN";
+//     }
+//     profileText.textContent = translations[currentLang].profile;
+//     langBtn.textContent = translations[currentLang].button;
 
-    poster[0].textContent = translations[currentLang].poster1;
-    poster[1].textContent = translations[currentLang].poster2;
-}
+//     poster[0].textContent = translations[currentLang].poster1;
+//     poster[1].textContent = translations[currentLang].poster2;
+// }
 
 // กดปุ่มเปลี่ยนภาษา
-langBtn.addEventListener("click", switchLanguage);
+// langBtn.addEventListener("click", switchLanguage);
 
 // แสดงรอบหนัง
 function showSeat(time, theater) {
@@ -145,7 +145,6 @@ function toggleSeat(seat) {
     const c = localStorage.getItem("selectedTime");
     console.log(seatId);
     const isBooked = seat.classList.contains("booked") || (bookingHistory[a]?.[b]?.[c]?.includes(seatId));
-
 
     if (isBooked) {
         alert("ที่นั่งนี้ถูกจองแล้ว!");

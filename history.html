@@ -27,7 +27,6 @@
                     <img id="imglogo" src="logoWeb.png">
                 </a>
             </div>
-
             <button id="reset-btn">Reset Booking</button>
             <div class="profile-container">
                 <div class="profile-text-container">
@@ -37,14 +36,15 @@
                     <span id="profile-text"><a href="#">Profile</a></span>
                 </div>
                 <div class="language-switcher">
-                    <button id="lang-btn">EN</button>
+                    <button onclick="changeLanguage('en')">TH ไทย</button>
+                    <button onclick="changeLanguage('th')">EN English</button>
                 </div>
                 <span id="logout"><a href="#" onclick="logout()">Logout</a></span>
             </div>
         </div>
     </div>
     <div class="historyContainer">
-        <h1>Booking History</h1>
+        <h1 data-translate="Booking-History">Booking History</h1>
         <div id="history-container"></div>
     </div>
 
@@ -89,12 +89,12 @@
                         bookingDiv.innerHTML = `
                     <h3 id="user">${booking.user}</h3>
                     <hr>
-                    <p><span class="label">Movie:</span> ${booking.movie}</p>
-                    <p><span class="label">Theater:</span> ${booking.theater}</p>
-                    <p><span class="label">Time:</span> ${booking.time}</p>
-                    <p><span class="label">Seats:</span> ${booking.seats}</p>
-                    <p><span class="label">Price:</span> $${booking.price}</p>
-                    <p class="date"><span class="label">Date:</span> ${booking.date}</p>
+                    <p><span class="label" data-translate="his-movie">Movie :</span> ${booking.movie}</p>
+                    <p><span class="label" data-translate="his-theater">Theater :</span> ${booking.theater}</p>
+                    <p><span class="label" data-translate="his-time">Time :</span> ${booking.time}</p>
+                    <p><span class="label" data-translate="his-seats">Seats :</span> ${booking.seats}</p>
+                    <p><span class="label" data-translate="his-price">Price :</span> ${booking.price}<span data-translate="his-price-curr"> Baht</span></p>
+                    <p class="date"><span class="label" data-translate="his-date">Date :</span> ${booking.date}</p>
                 `;
 
                         historyContainer.appendChild(bookingDiv);
@@ -110,7 +110,7 @@
 
 
     </script>
-
+    <script src="translate.js"></script>
 </body>
 
 </html>
