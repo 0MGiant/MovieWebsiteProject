@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kimetsu No Yaiba Infinity Train</title>
+    <title>Kimetsu No Yaiba Infinity Castle</title>
     <link rel="stylesheet" href="styles.css">
     <link href='https://fonts.googleapis.com/css?family=Jaini Purva' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -48,30 +48,51 @@
             <div class="view-detail">ในภาคนี้ ทันจิโร่และเพื่อน ๆ พร้อมกับเหล่าเสาหลักและหน่วยพิฆาตอสูร ถูกเคลื่อนย้ายมายังปราสาทไร้ขอบเขตเพื่อเผชิญหน้ากับคิบุทสึจิ มุซัน อสูรที่แข็งแกร่งที่สุด <br>พวกเขาต้องต่อสู้กับอสูรจันทราที่เหลือในศึกสุดท้าย</div>
         </div>
     </div>
-    <div class="movie-theater-info">
-        <div class="info">
-            <div class="title-theater">Theater 1 <strong>|</strong>
-            
-            </div>
-            <span class="sound"><i class="fas fa-volume-high"></i> JP/TH  <strong>|</strong></span>
-            
-            <span class="theater-2d normal">ทั่วไป</span>
-            <span class="theater-2d">2D</span>
-            
-        </div>
-        <div class="time-theater">
-            <a href="booking.html">
-                <div class="time-box">
-                    <span class="time-title">13:00</span>
-                </div>
-            </a>
-            <a href="booking.html"></a>
-                <div class="time-box">
-                    <span class="time-title">15:40</span>
-                </div>
-            </a>
 
+    <div class="booking-section">
+        <!-- รอบเวลาหนัง-->
+        <div class="booking-time-zone">
+            <div class="movie-theater-info">
+                <div class="info">
+                    <div class="title-theater">Theater 1<strong>|</strong>
+
+                    </div>
+                    <span class="sound"><i class="fas fa-volume-high"></i> JP/TH <strong>|</strong></span>
+
+                    <span class="theater-2d normal">ทั่วไป</span>
+                    <span class="theater-2d">2D</span>
+
+                </div>
+                <div class="time-theater">
+                    <div class="time-box" id="Theater_1" onclick=showPage()>
+                        <span class="time-title" id="11:00">11:00</span>
+                    </div>
+                    </onc>
+
+                    <div class="time-box" id="Theater_1" onclick=showPage()>
+                        <span class="time-title" id="13:40">13:40</span>
+                    </div>
+                </div>
+            </div>
+            <div class="movie-theater-info">
+                <div class="info">
+                    <div class="title-theater">Theater 4 <strong>|</strong>
+
+                    </div>
+                    <span class="sound"><i class="fas fa-volume-high"></i> JP/TH <strong>|</strong></span>
+                    <span class="theater-2d normal">ทั่วไป</span>
+                    <span class="theater-imax">IMAX</span>
+                </div>
+                <div class="time-theater">
+                    <div class="time-box" id="Theater_4" onclick=showPage()>
+                        <span class="time-title" id="16:00">16:00</span>
+                    </div>
+
+
+                </div>
+            </div>
         </div>
+
     </div>
     <div class="movie-theater-info">
         <div class="info">
@@ -90,7 +111,31 @@
 
         </div>
     </div>
-    
+    <script>
+        // ฟังก์ชันที่จะถูกเรียกเมื่อผู้ใช้คลิกที่ภาพหนัง
+        function handleMovieClick(event) {
+            const timeBox = event.target.closest('.time-box');
+            // หาชื่อหนังจากแอตทริบิวต์ alt ของ <img>
+            selectedTheater = timeBox.getAttribute('id');
+            selectedTime =  timeBox.querySelector('.time-title').getAttribute('id');
+
+            // แสดงผลชื่อหนังที่ถูกเลือกใน console
+            console.log('Selected Theater:', selectedTheater);
+            console.log('Selected Time:', selectedTime);
+
+            // เก็บค่าใน localStorage
+            localStorage.setItem('selectedTheater', selectedTheater);
+            localStorage.setItem('selectedTime', selectedTime);
+            console.log(localStorage);
+
+            // นำตัวแปรไปใช้งานต่อไป เช่น ไปยังหน้าอื่น หรือการเปลี่ยนแปลง UI
+        }
+
+        // เพิ่ม event listener ให้กับแต่ละ div .movie-container
+        document.querySelectorAll('.time-theater').forEach(function (movieTheater) {
+            movieTheater.addEventListener('click', handleMovieClick);
+        });
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.min.js"></script>
     <script src="script.js"></script>
     <script src="login.js"></script>

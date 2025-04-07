@@ -244,28 +244,6 @@ resetButton.addEventListener("click", () => {
     bookButton.disabled = true;
 });
 
-// ตัวแปรเพื่อเก็บชื่อหนัง
-let movieNames = [];
-
-// ฟังก์ชันสำหรับการคลิกที่หนัง
-function addMovieName(event) {
-    // ดึงชื่อหนังจาก div.movie-title ที่อยู่ใน movie-container เดียวกัน
-    let movieTitle = event.target.closest('#kimetsu-no-yaiba-Infinity-train').querySelector('.movie-title').innerText;
-
-    // เพิ่มชื่อหนังที่ถูกคลิกไปยัง movieNames
-    movieNames.push(movieTitle);
-
-    // แสดงผลชื่อหนังที่ถูกคลิก
-    console.log(`You clicked on: ${movieTitle}`);
-    console.log("All clicked movie names:", movieNames);
-}
-
-// เพิ่ม event listener ให้กับทุก ๆ รูปภาพใน .movie-container
-let movieImages = document.querySelectorAll('.movie-container img');
-movieImages.forEach(function (image) {
-    image.addEventListener('click', addMovieName);
-});
-
 function showPage() {
     let token = localStorage.getItem('token');
     if (token === null) {
