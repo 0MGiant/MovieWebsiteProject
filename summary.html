@@ -26,7 +26,7 @@
                 <a href="index.html">
                     <img id="imglogo" src="logoWeb.png">
                 </a>
-            </div>            
+            </div>
             <div class="Booking-History">
                 <button id="history" onclick="showHistory()">Booking History</button>
             </div>
@@ -38,8 +38,8 @@
                     <span id="profile-text"><a href="#">Profile</a></span>
                 </div>
                 <div class="language-switcher">
-                    <button onclick="changeLanguage('en')">TH ไทย</button>
-                    <button onclick="changeLanguage('th')">EN English</button>
+                    <button id="th-btn" onclick="changeLanguage('th')">TH ไทย</button>
+                    <button id="en-btn" onclick="changeLanguage('en')">EN English</button>
                 </div>
                 <span id="logout"><a href="#" onclick="logout()">Logout</a></span>
             </div>
@@ -48,35 +48,43 @@
     <div id="summary-page">
         <div class="ticket-container">
             <div class="poster-summary">
-                <img id="poster"src="None" alt="Movie Poster">
+                <img id="poster" src="None" alt="Movie Poster">
             </div>
             <div class="movie-info-summary">
-                <h2 id="movie-title" style="font-size: 32px;" ></h2>
+                <h2 id="movie-title" style="font-size: 32px;"></h2>
                 <div class="info-row">
                     <div class="audio-theater">
-                        <span class="audio-summary" >JP/TH</span>
+                        <span class="audio-summary">JP/TH</span>
                         <p class="theater" id="Theater" style="font-size: 28px;"><strong>None</strong></p>
                     </div>
                     <div style="display: flex; gap: 8px;font-size: 28px;">
                         <p>9 April 2025</p>
                         <p class="date-time"></p>
-                      </div>
+                    </div>
                 </div>
                 <hr>
                 <p class="seats-summary" data-translate="Selected-Seats">Selected Seats</p>
                 <br>
-                <p id="seat-list" style="font-size: 64px;"></p>
+                <div class="info-row-2">
+                    <p id="seat-list" style="font-size: 64px;"></p>
+                    <img id="qrcode" src="qrcode.jpg" alt="QRcode">
+                </div>
+
+
                 <div class="button-field">
                     <div class="total-summary" style="font-size: 24px;">
                         <span data-translate="total-amount">Total :</span>
                         <span id="total-price"></span>
                     </div>
                     <button id="back-btn" data-translate="back" style="font-size: 24px;">Back</button>
-                    <button id="pay-btn"data-translate="checkout" style="font-size: 24px;">Checkout</button>
+                    <button id="pay-btn" data-translate="checkout" style="font-size: 24px;">Checkout</button>
                 </div>
             </div>
+
         </div>
+
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.min.js"></script>
     <script src="script.js"></script>
     <script src="login.js"></script>

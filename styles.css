@@ -1,5 +1,5 @@
 body {
-    background-color:  #fffdde;
+    background-color: #fffdde;
     color: rgb(34, 33, 33);
     /* #ec4c56 */
     font-family: 'Space Mono', monospace;
@@ -8,10 +8,11 @@ body {
 * {
     margin: 0;
 }
+
 /*เอฟเฟ็กเมนู*/
 .navbar {
     width: 100%;
-    height: 50px;
+    height: max-content;
 }
 
 .navbar-container {
@@ -20,7 +21,7 @@ body {
     background-color: #404040;
     padding: 0 50px;
     height: max-content;
-    
+
     font-family: Arial, sans-serif;
 }
 
@@ -78,6 +79,7 @@ body {
 #lang-btn:hover {
     background-color: #f0f0f0;
 }
+
 /*เอฟเฟ็กหนัง*/
 .movie-container {
     width: 250px;
@@ -312,15 +314,19 @@ img {
 }
 
 .booking-container {
-    
+
     background-color: #222;
     color: white;
     display: flex;
-    flex-direction: column;  /* จัดเรียงแนวตั้ง */
-    justify-content: center; /* จัดกึ่งกลางตามแนวตั้ง */
-    align-items: center; /* จัดกึ่งกลางตามแนวนอน */
-    height: 100vh; /* ทำให้เต็มจอเพื่อเห็นผล */
-    text-align: center;    
+    flex-direction: column;
+    /* จัดเรียงแนวตั้ง */
+    justify-content: center;
+    /* จัดกึ่งกลางตามแนวตั้ง */
+    align-items: center;
+    /* จัดกึ่งกลางตามแนวนอน */
+    height: 100vh;
+    /* ทำให้เต็มจอเพื่อเห็นผล */
+    text-align: center;
 }
 
 .screen {
@@ -330,11 +336,13 @@ img {
     padding: 10px;
     border-top: 3px solid orange;
     align-items: center;
-    margin-bottom: 15vw; /* ระยะห่างระหว่างจอกับผู้ชม */
+    margin-bottom: 15vw;
+    /* ระยะห่างระหว่างจอกับผู้ชม */
     position: absolute;
-    top: 70px; /* ปรับค่าตามที่ต้องการ */
-    
-    
+    top: 70px;
+    /* ปรับค่าตามที่ต้องการ */
+
+
 }
 
 .seating-chart-first {
@@ -373,25 +381,32 @@ img {
     margin: 15px;
 }
 
-.fa-couch, .fa-check-circle {
-    font-size: min(1.8rem, 2vw); /* ใช้ค่าที่เล็กกว่า */
+.fa-couch,
+.fa-check-circle {
+    font-size: min(1.8rem, 2vw);
+    /* ใช้ค่าที่เล็กกว่า */
     width: min(2.2rem, 2.5vw);
     height: min(2.2rem, 2.5vw);
     text-align: center;
-    margin-right: 10px; /* ระยะห่างระหว่างที่นั่ง */
+    margin-right: 10px;
+    /* ระยะห่างระหว่างที่นั่ง */
     cursor: pointer;
 }
-.fa-user-circle{
+
+.fa-user-circle {
     color: #519fb8;
 }
-.button-booking{
+
+.button-booking {
     display: inline;
     margin-top: 3vh;
     display: flex;
-    justify-content: center; /* จัดแนวนอน */
+    justify-content: center;
+    /* จัดแนวนอน */
     align-items: center;
 }
-button{
+
+button {
     padding: 10px 20px;
     border-radius: 10px;
     border: none;
@@ -399,25 +414,30 @@ button{
     font-size: 16px;
     margin: 10px;
 }
+
 #book-seats:disabled {
     background-color: #787777;
     color: white;
     cursor: not-allowed;
 }
-#back-movie{
+
+#back-movie {
     color: white;
     background-color: #3c3c3a;
 }
-#book-seats{
+
+#book-seats {
     color: #000000;
     background-color: #e8ce22;
 }
-.seat-container{
+
+.seat-container {
     display: inline-flex;
     margin: 20px;
-    
+
 }
-.price-seat{
+
+.price-seat {
     background-color: #5a5757;
     width: 20vh;
     height: 10vh;
@@ -430,24 +450,27 @@ button{
     font-size: 32px;
     gap: 20px;
 }
-#summary-page{
+
+#summary-page {
     display: flex;
-    justify-content: center; /* จัดแนวนอน */
+    justify-content: center;
+    /* จัดแนวนอน */
     align-items: center;
     margin: 10vh;
 }
-#seats-list{
+
+#seats-list {
     list-style-type: none;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 8vh;
-    
-    
 }
-li{
+
+li {
     flex-wrap: nowrap;
 }
+
 .ticket-container {
     display: grid;
     grid-template-columns: 1fr 2fr;
@@ -459,24 +482,37 @@ li{
     width: max-content;
     margin: auto;
 }
-.poster-summary{
-    width: max-content
+
+.poster-summary {
+    width: max-content;
+    height: max-content;
+    object-fit: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
 }
-.poster-summary img{
+
+.poster-summary img {
     border-radius: 15px;
-    max-width: 100%;
+    width: 37vh;
+    height: 60vh;
+    object-fit: cover;
 }
+
 .movie-info-summary {
     font-size: 18px;
     margin: 0px;
     padding-left: 10px;
-    
+
 }
+
 .movie-info-summary h2 {
     margin: 5px;
     font-size: 24px;
-    
+
 }
+
 .movie-info-summary .audio-summary {
     background: black;
     color: white;
@@ -485,26 +521,29 @@ li{
     display: flex;
     justify-content: center;
     align-items: center;
-    
-}
-.info-row{
-    display: flex;
-    justify-content: space-between;
-    align-items:flex-end;           /* จัดให้อยู่กึ่งกลางแนวตั้ง */
-  /* หรือเพิ่ม gap ได้หากต้องการเว้นช่องว่างระหว่างสองฝั่ง */
-  
 
 }
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    /* จัดให้อยู่กึ่งกลางแนวตั้ง */
+    /* หรือเพิ่ม gap ได้หากต้องการเว้นช่องว่างระหว่างสองฝั่ง */
+}
+
 .theater-summary {
     font-weight: bold;
-    
+
 }
+
 .seats-summary {
-    margin-top:10px;
+    margin-top: 10px;
     font-size: 24px;
     font-weight: bold;
     text-decoration: underline;
 }
+
 .total-summary {
     background: #fff5b5;
     padding: 5px;
@@ -516,7 +555,9 @@ li{
     width: max-content;
     height: 50px;
 }
-#pay-btn, #back-btn {
+
+#pay-btn,
+#back-btn {
     background: #fff5b5;
     padding: 5px 10px;
     border-radius: 5px;
@@ -525,18 +566,23 @@ li{
     width: 150px;
     height: 50px;
 }
+
 .audio-theater {
     display: flex;
     flex-direction: column;
 }
-.button-field{
+
+.button-field {
     display: flex;
     margin-top: 75px;
-    justify-content: center; /* จัดปุ่มตรงกลาง */
+    justify-content: center;
+    /* จัดปุ่มตรงกลาง */
     align-items: center;
-    gap: 10px; /* เพิ่มช่องว่างระหว่างปุ่ม */
+    gap: 10px;
+    /* เพิ่มช่องว่างระหว่างปุ่ม */
 }
-.Booking-History{
+
+.Booking-History {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -588,16 +634,36 @@ h1 {
         font-size: 1.5rem;
     }
 }
+
 #user {
     font-size: 30px;
     color: goldenrod;
 }
-#history{
+
+#history {
     display: none;
 }
 
-#th-btn, #en-btn {
+#th-btn,
+#en-btn {
     background: #c6dce4;
     color: #13005a;
     font-weight: bold;
 }
+
+#qrcode {
+    margin-right: 40px;
+    max-width: 100%;
+    width: 250px;
+    height: 250px;
+    
+    object-fit: cover;
+}
+.info-row-2 {
+    display: flex;
+    align-items: center; /* กึ่งกลางแนวตั้ง */
+    justify-content: space-between;
+    width: 100%;
+    gap: 24px;
+}
+

@@ -5,12 +5,12 @@ const translations = {
         "Movie-Genres": "อนิเมชัน, แอคชั่น, แฟนตาซี",
         "Summary": "เนื้อเรื่องย่อ",
         "Summary-page-1": `ทันจิโร่, เนซึโกะ, เซ็นอิตสึ และ อิโนะสุเกะ ได้รับภารกิจใหม่ให้ขึ้นไปยัง
-                "ขบวนรถไฟมรณะ" (Mugen Train) ซึ่งมีเหตุการณ์ผู้คนหายตัวไปอย่างลึกลับกลุ่มของทันจิโร่ได้ร่วมมือกับ
-                <br>เรนโกคุ เคียวจูโร่ เสาหลักแห่งเปลวเพลิง เพื่อต่อสู้กับปีศาจที่ซ่อนตัวอยู่บนขบวนรถไฟ
-                พวกเขาต้องเผชิญกับ เอนมุ อสูรข้างขึ้นลำดับที่ 1 แห่งข้างแรม ซึ่งมีพลังควบคุมความฝัน
-                <br>ทำให้เหยื่อติดอยู่ในฝันอันแสนสุขโดยไม่สามารถตื่นขึ้นมาได้ศึกบนขบวนรถไฟสุดเดือดดำเนินไปพร้อมกับการเสียสละครั้งใหญ่ของเรนโกคุ
-                ผู้ยืนหยัดปกป้องทุกคนด้วยหัวใจของ<br>นักล่าอสูรที่แท้จริง
-                เรื่องราวของเขากลายเป็นแรงบันดาลใจให้ทันจิโร่และพรรคพวกก้าวไปสู่การเป็นนักล่าอสูรที่แข็งแกร่งยิ่งขึ้น`,
+                "ขบวนรถไฟมรณะ" (Mugen Train) ซึ่งมีเหตุการณ์ผู้คนหายตัวไปอย่างลึกลับ<br>กลุ่มของทันจิโร่ได้ร่วมมือกับ
+                เรนโกคุ เคียวจูโร่ เสาหลักแห่งเปลวเพลิง เพื่อต่อสู้กับปีศาจที่ซ่อนตัวอยู่บนขบวนรถไฟ
+                พวกเขาต้องเผชิญกับ เอนมุ <br> อสูรข้างขึ้นลำดับที่ 1 แห่งข้างแรม ซึ่งมีพลังควบคุมความฝัน
+                ทำให้เหยื่อติดอยู่ในฝันอันแสนสุขโดยไม่สามารถตื่นขึ้นมาได้ศึกบนขบวนรถไฟสุดเดือดดำเนินไป <br> พร้อมกับการเสียสละครั้งใหญ่ของเรนโกคุ
+                ผู้ยืนหยัดปกป้องทุกคนด้วยหัวใจของนักล่าอสูรที่แท้จริง
+                เรื่องราวของเขากลายเป็นแรงบันดาลใจให้ทันจิโร่ <br> และพรรคพวกก้าวไปสู่การเป็นนักล่าอสูรที่แข็งแกร่งยิ่งขึ้น`,
         "Theater 2": "โรงภาพยนตร์ที่ 2",
         "Theater 3": "โรงภาพยนตร์ที่ 3",
         "Normal": "ทั่วไป",
@@ -41,18 +41,21 @@ const translations = {
         "date": "9 April 2025",
         "Movie-Genres": "Animation, Action, Fantasy",
         "Summary": "Summary",
-        "Summary-page-1": `Tanjiro, Nezuko, Zenitsu, and Inosuke receive a new mission to board the 'Mugen Train' (Infinity Train), 
-                where people have been mysteriously disappearing. The group teams up with <br> Rengoku Kyojuro, the Flame Hashira, 
-                to fight the demon lurking aboard the train. They face Enmu, the Lower Rank 1 demon of the Moon Pillar, who has the power to manipulate dreams,<br> 
-                trapping his victims in a blissful dream from which they cannot awaken. The intense battle on the train progresses alongside a major sacrifice from Rengoku, 
-                who stands firm to protect everyone <br> with the heart of a true demon slayer. His story becomes an inspiration for Tanjiro and his companions to strive toward becoming even stronger demon slayers.`,
+        "Summary-page-1": `Tanjiro, Nezuko, Zenitsu, and Inosuke receive a new mission to board the 'Mugen Train' (Infinity Train),
+            where people have been <br> mysteriously disappearing. The group teams up with Rengoku Kyojuro, the Flame Hashira,
+            to fight the demon lurking aboard the train. <br> They face Enmu, the Lower Rank 1 demon of the Moon Pillar, who has the
+            power to manipulate dreams,
+            trapping his victims in <br> a blissful dream from which they cannot awaken. The intense battle on the train progresses
+            alongside a major sacrifice from Rengoku,
+            <br> who stands firm to protect everyone with the heart of a true demon slayer. His story becomes an inspiration for
+            Tanjiro and <br> his companions to strive toward becoming even stronger demon slayers.`,
         "Theater 2": "Theater 2",
         "Theater 3": "Theater 3",
         "Normal": "normal",
 
         "movie-title-2": "Kimetsu No Yaiba Infinity Castle",
-        "Summary-page-2": `In this arc, Tanjiro and his friends, along with the Hashira and the Demon Slayer Corps, are transported to the Infinite Castle to face Kibutsuji Muzan, the strongest demon. 
-                <br> They must fight the remaining Upper Rank demons in a final battle.`,
+        "Summary-page-2": `In this arc, Tanjiro and his friends, along with the Hashira and the Demon Slayer Corps, are transported to the Infinite Castle <br>to face Kibutsuji Muzan, the strongest demon. 
+                They must fight the remaining Upper Rank demons in a final battle.`,
         "Theater 1": "Theater 1",
         "Theater 4": "Theater 4",
 
@@ -75,24 +78,7 @@ const translations = {
 };
 
 function changeLanguage(lang) {
-    const a = localStorage.getItem("selectedMovieTitle");
-    const b = localStorage.getItem("selectedTheater");
-    const movietitle = document.getElementById("movie-title");
-    const movietheater = document.getElementById("Theater");
-    if (a == "Kimetsu No Yaiba Infinity Train") {
-        movietitle.setAttribute("data-translate", "movie-title-1");
-    } else if (a == "Kimetsu No Yaiba Infinity Castle") {
-        movietitle.setAttribute("data-translate", "movie-title-2");
-    }
-    if (b == "Theater_1") {
-        movietheater.setAttribute("data-translate", "Theater 1");
-    } else if (b == "Theater_2") {
-        movietheater.setAttribute("data-translate", "Theater 2");
-    } else if (b == "Theater_3") {
-        movietheater.setAttribute("data-translate", "Theater 3");
-    } else if (b == "Theater_4") {
-        movietheater.setAttribute("data-translate", "Theater 4");
-    }
+    
     document.documentElement.lang = lang;
     document.querySelectorAll("[data-translate]").forEach(element => {
         let key = element.getAttribute("data-translate");

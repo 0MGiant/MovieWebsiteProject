@@ -3,7 +3,24 @@ document.addEventListener("DOMContentLoaded", () => {
     const totalPrice = document.getElementById('total-price');
     const backButton = document.getElementById('back-btn');
     const payButton = document.getElementById('pay-btn');
-
+    const a = localStorage.getItem("selectedMovieTitle");
+    const b = localStorage.getItem("selectedTheater");
+    const movietitle = document.getElementById("movie-title");
+    const movietheater = document.getElementById("Theater");
+    if (a == "Kimetsu No Yaiba Infinity Train") {
+        movietitle.setAttribute("data-translate", "movie-title-1");
+    } else if (a == "Kimetsu No Yaiba Infinity Castle") {
+        movietitle.setAttribute("data-translate", "movie-title-2");
+    }
+    if (b == "Theater_1") {
+        movietheater.setAttribute("data-translate", "Theater 1");
+    } else if (b == "Theater_2") {
+        movietheater.setAttribute("data-translate", "Theater 2");
+    } else if (b == "Theater_3") {
+        movietheater.setAttribute("data-translate", "Theater 3");
+    } else if (b == "Theater_4") {
+        movietheater.setAttribute("data-translate", "Theater 4");
+    }
     // console.log(localStorage);
 
     let personal_bookedSeats = JSON.parse(localStorage.getItem("personal-seats"));
