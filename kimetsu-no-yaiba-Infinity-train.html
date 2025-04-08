@@ -29,11 +29,11 @@
                     <a href="Form_pattern.html">
                         <i class='fas fa-user-circle' style='font-size:40px;object-fit: cover;'></i>
                     </a>
-                    <span id="profile-text"><a href="#">Profile</a></span>
+                    <span id="profile-text">Profile</span>
                 </div>
                 <div class="language-switcher">
-                    <button onclick="changeLanguage('en')">TH ไทย</button>
-                    <button onclick="changeLanguage('th')">EN English</button>
+                    <button id="th-btn" onclick="changeLanguage('en')">TH ไทย</button>
+                    <button id="en-btn" onclick="changeLanguage('th')">EN English</button>
                 </div>
                 <span id="logout"><a href="#" onclick="logout()">Logout</a></span>
             </div>
@@ -65,9 +65,7 @@
         <div class="booking-time-zone">
             <div class="movie-theater-info">
                 <div class="info">
-                    <div class="title-theater" data-translate="Theater 2">Theater 2
-
-                    </div>
+                    <div class="title-theater" data-translate="Theater 2">Theater 2</div>                    
                     <span class="sound"><i class="fas fa-volume-high"></i> JP/TH <strong>|</strong></span>
 
                     <span class="theater-2d normal" data-translate="Normal">ทั่วไป</span>

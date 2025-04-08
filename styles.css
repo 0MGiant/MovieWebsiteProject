@@ -2,6 +2,7 @@ body {
     background-color:  #fffdde;
     color: rgb(34, 33, 33);
     /* #ec4c56 */
+    font-family: 'Space Mono', monospace;
 }
 
 * {
@@ -132,23 +133,24 @@ body {
 }
 
 .movie-info {
-    color: white;
+    color: #519fb8;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin: 20px;
+    margin-left: 10px;
     white-space: nowrap;
+    font-weight: bold;
 }
 
 .release-date {
-    color: gold;
+    color: #519fb8;
     font-size: 28px;
     padding: 8px 12px;
 }
 
 .genre {
     font-size: 18px;
-    color: #ccc;
+    color: #519fb8;
     padding: 8px 12px;
 }
 
@@ -159,29 +161,32 @@ body {
 }
 
 .age-rating {
-    background-color: #444;
-    color: gold;
+    background-color: #519fb8;
+    color: #fffdde;
     padding: 5px 10px;
     border-radius: 5px;
     font-weight: bold;
+    margin-left: 15px;
 }
 
 .duration {
     font-size: 16px;
-    color: white;
+    color: #519fb8;
     display: flex;
     align-items: center;
     gap: 5px;
 }
 
 .view-detail {
-    border: 2px solid gold;
+    border: 3px solid #c6dce4;
+    border-radius: 5px;
+    background: #c6dce4;
     width: 100%;
     /* ให้ข้อความขยายเต็มหน้าจอ */
-    color: gold;
+    color: #17045c;
     padding: 10px 20px;
     font-size: 16px;
-    border-radius: 5px;
+    font-weight: bold;
     cursor: pointer;
     line-height: 1.8;
     /* ปรับระยะห่างระหว่างบรรทัด */
@@ -190,8 +195,10 @@ body {
 }
 
 .view-detail:hover {
-    background: gold;
-    color: black;
+    background: #14015b;
+    color: #fffdde;
+    border: 3px solid #17045c;
+    border-radius: 5px;
 }
 
 .title-intro {
@@ -201,13 +208,13 @@ body {
 
 .title-theater {
     font-size: 20px;
-    color: white;
+    color: #519fb8;
 }
 
 .sound {
     display: flex;
     align-items: center;
-    color: white;
+    color: #519fb8;
     gap: 5px;
 }
 
@@ -227,20 +234,21 @@ strong {
 }
 
 .theater-2d {
-    background-color: #444;
-    color: gold;
+    background-color: #13b829;
+    color: #fffdde;
     padding: 5px 10px;
     border-radius: 5px;
     font-weight: bold;
 }
 
 .normal {
-    color: rgb(126, 235, 93);
+    background-color: #519fb8;
+    color: #fffdde;
 }
 
 .theater-imax {
-    background-color: #444;
-    color: rgb(68, 109, 255);
+    background-color: #a01111;
+    color: #fffdde;
     padding: 5px 10px;
     border-radius: 5px;
     font-weight: bold;
@@ -250,20 +258,21 @@ strong {
     display: flex;
     width: 60px;
     height: 40px;
+    border: 3px solid #c6dce4;
     border-radius: 8px;
-    background-color: gold;
+    background: #c6dce4;
     align-items: center;
     justify-content: center;
     margin: 20px 18px;
+    color: #17045c;
+    font-weight: bold;
 }
 
 .time-box:hover {
-    background-color: white;
-}
-
-.time-title {
-    font-size: 16px;
-    color: #444;
+    background: #14015b;
+    color: #fffdde;
+    border: 3px solid #17045c;
+    border-radius: 8px;
 }
 
 .time-theater {
@@ -311,9 +320,7 @@ img {
     justify-content: center; /* จัดกึ่งกลางตามแนวตั้ง */
     align-items: center; /* จัดกึ่งกลางตามแนวนอน */
     height: 100vh; /* ทำให้เต็มจอเพื่อเห็นผล */
-    text-align: center;
-    
-    
+    text-align: center;    
 }
 
 .screen {
@@ -534,17 +541,6 @@ li{
     justify-content: center;
     align-items: center;
 }
-.historyContainer {
-    text-align: center;
-    width: 90%;
-
-    max-width: 900px;
-    margin: 20px auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
 
 h1 {
     font-size: 2rem;
@@ -598,4 +594,10 @@ h1 {
 }
 #history{
     display: none;
+}
+
+#th-btn, #en-btn {
+    background: #c6dce4;
+    color: #13005a;
+    font-weight: bold;
 }

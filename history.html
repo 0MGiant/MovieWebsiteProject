@@ -8,13 +8,106 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         body {
-            background-color: #1a1a1a;
+            background-color: #fffdde;
             color: white;
             font-family: Arial, sans-serif;
 
             height: 100vh;
             margin: 0;
             flex-direction: column;
+            font-family: 'Space Mono', monospace;
+        }
+
+        h1 {
+            color: #14015b;
+            font-size: 2.5rem;
+            margin: 10px;
+            background-color: #c6dce4;
+            width: 100%;
+            height: 100%;            
+            border-radius: 10px;
+        }
+        hr {
+            border: none;
+            border-top: 2px solid #c6dce4;
+            margin: 10px 0;
+        }
+        .historyContainer {
+            text-align: center;
+            width: 90%;
+            color: #14015b;
+            max-width: 900px;
+            margin: 20px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        #history-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            width: auto;
+        }
+
+        /* Template for booking information */
+        .history-item {
+            background-color: #fffdde;
+            width: 100%;
+            border: 4px solid #c6dce4;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .history-item:hover {
+            transform: scale(1.05);
+        }
+
+        .history-item p {
+            margin: 10px 0;
+            font-size: 1.5rem;
+        }
+
+        .history-item .date {
+            color: #df9c1f;
+            font-size: 1.2rem;
+        }
+
+        /* Style for the individual item labels */
+        .history-item .label {
+            font-weight: bold;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 800px) {
+            .history-container {
+                width: 100%;
+                padding: 10px;
+            }
+
+            h3 {
+                font-size: 1.5rem;
+            }
+        }
+
+        #user {
+            font-size: 2.5rem;
+            color: #519fb8;
+        }
+
+        #history {
+            display: none;
+        }
+
+        #th-btn,
+        #en-btn {
+            background: #c6dce4;
+            color: #13005a;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -63,7 +156,7 @@
                 localStorage.removeItem("selectedTime");
                 localStorage.removeItem("bookingHistory");
                 // createSeats();
-                
+
                 selectedSeats = [];
                 bookButton.disabled = true;
             });
